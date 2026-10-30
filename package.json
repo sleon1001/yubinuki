@@ -1,0 +1,10 @@
+{
+  "name": "yubinuki",
+  "version": "1.0.0",
+  "private": true,
+  "description": "指毛ぬき - finger hair plucking game",
+  "scripts": {
+    "fonts": "node scripts/copy-fonts.js",
+    "setup": "npm run fonts && npx cap sync"
+  }
+}

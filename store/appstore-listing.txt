@@ -1,0 +1,121 @@
+===== 日本語(プライマリ) =====
+
+【名前】(30文字以内)
+指毛ぬき
+
+【サブタイトル】(30文字以内)
+スパッと抜いて、痛みをこらえろ
+
+【プロモーションテキスト】(170文字以内)
+指に生えた毛を、つまんで抜くだけ。毛流れを読んで、スパッと抜いて、コンボをつなげ。25コンボで全部が金の毛になるフィーバー突入!
+
+【説明】
+指に生えた指毛を、つまんで、引っぱって、抜く。それだけのゲームです。
+
+■ 遊び方
+・毛をつまんで引っぱると抜けます
+・すばやく抜くと「スパッ!」。痛みが少なくコンボが続きます
+・毛の向きに沿って引くと痛みが半分。逆向きに引くと激痛で、途中でちぎれることも
+・同じ指ばかり抜くとジンジンして痛みが増えます
+・痛かった分だけ得点が引かれます。痛みが満タンになったら終了
+
+■ アイテム
+・脱毛クリーム:指1本分の毛を痛みゼロで一掃
+・保冷剤:痛みが引いて、しばらく痛みが半分に
+・毛抜き:しばらくどう抜いても「スパッ!」
+
+■ フィーバー
+25コンボごとにフィーバー突入。6秒間、すべての毛が1本100点の金の毛になり、痛みも半分に。
+
+■ ランク
+スコアや遊び方でランクが決まります。どんなランクがあるかは、遊んでのお楽しみ。
+
+日本語・English・中文・한국어に対応。オフラインで遊べます。
+
+【キーワード】(100文字以内、カンマ区切り)
+指毛,毛抜き,脱毛,ムダ毛,抜く,カジュアル,暇つぶし,ミニゲーム,スコアアタック,コンボ,痛い,バカゲー,指,毛
+
+【カテゴリ】
+プライマリ:ゲーム(サブカテゴリ:カジュアル、アクション)
+
+【著作権】
+2026 (あなたの名前)
+
+【審査メモ】(App Review に伝える内容。任意)
+シンプルなスコアアタックゲームです。ログインや課金はありません。毛をつまんで引っぱると抜けます。タイトル画面の「はじめる」から開始してください。
+
+
+===== English (U.S.) — 追加のローカリゼーション =====
+
+[Name]
+Finger Fuzz
+
+[Subtitle]
+Pluck fast. Handle the pain.
+
+[Promotional text]
+Pinch the hairs on a finger and yank them out. Read the grain, pluck with a SNAP, and keep the combo alive. Every 25-combo starts FEVER: all hairs turn gold!
+
+[Description]
+Pinch the hairs on a finger, pull, and pluck. That's the whole game.
+
+HOW TO PLAY
+- Pinch a hair and pull it out
+- Yank fast for a SNAP! Less pain, and your combo keeps going
+- Pull with the grain for half the pain. Against the grain hurts, and the hair may break off
+- Plucking the same finger over and over makes it sting
+- Pain costs you points. Max pain ends the game
+
+POWER-UPS
+- Hair removal cream: clears a whole finger, no pain
+- Ice pack: cools the pain and halves it for a while
+- Tweezers: every pluck is a SNAP! for a while
+
+FEVER
+Every 25-combo starts FEVER: for 6 seconds every hair turns gold and is worth 100 points, and pain is halved.
+
+RANKS
+Your score and play style decide your rank. What ranks are there? Play to find out.
+
+Available in Japanese, English, Chinese, and Korean. Plays offline.
+
+[Keywords]
+finger,hair,pluck,tweezers,waxing,casual,arcade,combo,score,funny,satisfying,mini game
+
+
+===== 한국어 (Korean) — 追加のローカリゼーション =====
+
+[이름]
+손가락 털 뽑기
+
+[부제]
+쏙 뽑고, 아픔을 참아라
+
+[프로모션 텍스트]
+손가락에 난 털을 집어서 뽑기만 하면 끝. 털의 결을 읽고, 쏙 뽑아서 콤보를 이어가세요. 25콤보마다 모든 털이 금색으로 변하는 피버 돌입!
+
+[설명]
+손가락에 난 털을 집고, 당기고, 뽑는다. 그게 전부인 게임입니다.
+
+■ 게임 방법
+・털을 집고 당기면 뽑혀요
+・빠르게 뽑으면 「쏙!」. 덜 아프고 콤보가 이어져요
+・털 방향대로 당기면 통증 절반. 반대로 당기면 엄청 아프고, 중간에 끊어지기도 해요
+・같은 손가락만 뽑으면 욱신욱신 통증이 커져요
+・아픈 만큼 점수가 깎여요. 통증이 가득 차면 끝
+
+■ 아이템
+・제모 크림: 손가락 하나의 털을 통증 없이 싹
+・아이스팩: 통증이 가라앉고, 잠시 통증이 절반으로
+・족집게: 잠시 동안 어떻게 뽑아도 「쏙!」
+
+■ 피버
+25콤보마다 피버 돌입. 6초 동안 모든 털이 한 가닥 100점짜리 금색 털이 되고, 통증도 절반으로.
+
+■ 랭크
+점수와 플레이 스타일로 랭크가 정해져요. 어떤 랭크가 있는지는 직접 플레이해서 확인하세요.
+
+일본어・영어・중국어・한국어 지원. 오프라인으로 플레이할 수 있어요.
+
+[키워드]
+손가락,털,털뽑기,족집게,제모,캐주얼,미니게임,콤보,점수,웃긴게임,킬링타임

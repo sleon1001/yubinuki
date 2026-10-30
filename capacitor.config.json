@@ -1,0 +1,8 @@
+{
+  "appId": "com.yubinuki.game",
+  "appName": "指毛ぬき",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#d6ebe6"
+  }
+}
