@@ -1,0 +1,68 @@
+# Codemagic(クラウドのMac)で iPhone 版をビルドして App Store Connect にアップロードする設定。
+# Mac を持っていない場合に使います。使い方は「iPhone_guide.md」の B ルートを参照。
+#
+# 書き換えるのは APP_STORE_APPLE_ID の 1 か所だけです(App Store Connect でアプリを作ったあとに分かる数字)。
+
+workflows:
+  ios-release:
+    name: 指毛ぬき iOS
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: codemagic
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.yubinuki.game
+      vars:
+        APP_STORE_APPLE_ID: 6829188451
+        APP_VERSION: "1.0"
+        XCODE_SCHEME: "App"
+      node: latest
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: パッケージを入れる
+        script: |
+          npm install @capacitor/core @capacitor/cli @capacitor/ios @capacitor/assets @fontsource/dela-gothic-one @fontsource/zen-kaku-gothic-new
+      - name: フォントをアプリ内にコピー
+        script: npm run fonts
+      - name: iOS プロジェクトを作る
+        script: |
+          if [ ! -d ios ]; then npx cap add ios; fi
+          npx capacitor-assets generate --ios
+          npx cap sync ios
+      - name: iPhone 専用・縦向き固定・暗号化なしの設定
+        script: |
+          PLIST=ios/App/App/Info.plist
+          /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$PLIST" || true
+          /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations" "$PLIST" || true
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations~ipad" "$PLIST" || true
+          sed -i '' 's/TARGETED_DEVICE_FAMILY = "1,2";/TARGETED_DEVICE_FAMILY = 1;/g' ios/App/App.xcodeproj/project.pbxproj
+      - name: 署名の準備
+        script: xcode-project use-profiles
+      - name: ビルド番号を上げる
+        script: |
+          cd ios/App
+          A=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" 2>/dev/null | tail -n1 | tr -cd '0-9'); A=${A:-0}
+          T=$(app-store-connect get-latest-testflight-build-number "$APP_STORE_APPLE_ID" 2>/dev/null | tail -n1 | tr -cd '0-9'); T=${T:-0}
+          C=${BUILD_NUMBER:-0}
+          LATEST=$A; [ "$T" -gt "$LATEST" ] && LATEST=$T; [ "$C" -gt "$LATEST" ] && LATEST=$C
+          echo "latest build number: $LATEST (store=$A testflight=$T codemagic=$C)"
+          agvtool new-marketing-version "$APP_VERSION"
+          agvtool new-version -all $((LATEST + 1))
+      - name: ipa を作る
+        script: |
+          if [ -d ios/App/App.xcworkspace ]; then
+            xcode-project build-ipa --workspace ios/App/App.xcworkspace --scheme "$XCODE_SCHEME"
+          else
+            xcode-project build-ipa --project ios/App/App.xcodeproj --scheme "$XCODE_SCHEME"
+          fi
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
