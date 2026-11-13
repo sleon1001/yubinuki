@@ -12,6 +12,7 @@
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;font-size:14px;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 [hidden]{display:none!important}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html[lang="zh"]{--display:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
 html[lang="zh"] .card h1,html[lang="zh"] .card h2,html[lang="zh"] .big,html[lang="zh"] button.go,html[lang="zh"] .stat b{font-weight:900}
 html[lang="ko"]{--display:"Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Malgun Gothic",sans-serif;--body:"Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Malgun Gothic",sans-serif}
@@ -99,6 +100,50 @@ button.go.big{font-size:26px;padding:16px}
 .lvbar i{display:block;height:100%;width:0;background:var(--gold);transition:width .6s ease}
 .gain{font-size:13px;font-weight:700;color:var(--muted)}
 .gain.up{color:var(--gold)}
+.stock{font-size:12px;font-weight:700;color:#2f8a5a}
+.tray{position:absolute;left:10px;bottom:10px;display:flex;gap:8px;z-index:4}
+.trayBtn{width:48px;height:48px;padding:0;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+.trayBtn svg{width:30px;height:30px}
+.adbtn{background:var(--gold);color:var(--ink);font-size:14px;padding:10px 12px}
+.adbtn:disabled{opacity:.7}
+.sharebtn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--ink);font-size:15px;padding:10px 12px}
+.sharebtn svg{width:18px;height:18px;flex:none}
+.sharebtn:disabled{opacity:.6}
+.endOv{flex-direction:column;justify-content:flex-end;align-items:center;gap:0;padding:8px 12px 12px;background:rgba(31,43,51,.35)}
+.endTop{flex:1;min-height:0;width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative}
+#endFace{flex:1;min-height:0;width:100%;display:block}
+.say{position:relative;z-index:2;margin:-6px 0 -12px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:6px 18px;font-family:var(--display);font-size:18px;line-height:1.3;text-align:center;max-width:94%;box-shadow:3px 3px 0 var(--ink)}
+.say::before{content:"";position:absolute;left:50%;top:-11px;margin-left:-9px;border:9px solid transparent;border-top:0;border-bottom:11px solid var(--ink)}
+.say::after{content:"";position:absolute;left:50%;top:-6px;margin-left:-6px;border:6px solid transparent;border-top:0;border-bottom:8px solid #fff}
+.endCard{max-width:420px;gap:8px;padding:22px 18px 16px;text-align:center;align-items:stretch;flex:none}
+.endHead{display:flex;justify-content:center;gap:10px;font-size:13px;font-weight:700;color:var(--muted)}
+.endCard .big{font-size:58px}
+.endCard .rank{align-self:center;background:none;color:var(--pain);font-family:var(--display);font-weight:400;font-size:32px;padding:0;line-height:1.15;-webkit-text-stroke:7px var(--ink);paint-order:stroke fill;text-wrap:balance}
+.endCard .rank.special{background:none;color:var(--gold)}
+.endCard .next{margin-top:-4px}
+.endCard .rows{grid-template-columns:1fr auto 1fr auto;gap:2px 10px;font-size:13px;text-align:left}
+.endCard .lvbox{text-align:left}
+.shareRow{display:flex;gap:8px}
+.shareRow>button{flex:1}
+.xbtn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--ink);color:#fff;font-size:14px;padding:10px 8px;white-space:nowrap}
+.shareRow .sharebtn{font-size:14px;padding:10px 8px;gap:6px;white-space:nowrap}
+.xbtn svg{width:16px;height:16px;flex:none}
+.imgCard{max-width:520px;align-items:center;text-align:center}
+.imgCard img{width:100%;height:auto;border:2px solid var(--ink);border-radius:10px;-webkit-touch-callout:default;user-select:auto;-webkit-user-select:auto}
+@media (max-height:700px){.endCard .big{font-size:44px}.endCard .rank{font-size:26px}.endCard{gap:6px;padding:18px 14px 12px}.say{font-size:15px}}
+#toSet{grid-column:1/-1}
+#toSkin{position:relative}
+.dot{position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:var(--pain);border:2px solid var(--ink)}
+.skinCard{gap:10px;padding:16px 18px}
+.skinCard h2{font-size:22px}
+.skRow{display:flex;align-items:center;gap:8px}
+.skRow>span{width:3.4em;flex:none;font-size:12px;font-weight:700;color:var(--muted)}
+.skSw{display:flex;gap:6px;flex-wrap:wrap}
+.sw{width:32px;height:32px;padding:0;border-radius:50%;border-width:3px;display:grid;place-items:center;color:#fff;position:relative;font-size:15px}
+.sw[aria-pressed="true"]{outline:3px solid var(--gold);outline-offset:2px}
+.sw.lock::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(31,43,51,.6)}
+.sw svg,.sw b{position:relative}
+.skMsg{font-size:13px;color:var(--pain);min-height:1.5em;font-weight:700}
 .spHead{margin-top:8px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
 .rrow.sp{flex-direction:column;gap:2px}
 .rrow .cond{font-size:12px}
@@ -116,17 +161,19 @@ button.go.big{font-size:26px;padding:16px}
 </div>
 <div class="stage" id="stage">
   <canvas id="cv"></canvas>
+  <div class="tray" id="tray" hidden></div>
   <div class="ov home" id="ovTitle">
     <div class="card homeTop">
       <h1 data-i="title">指毛<br>ぬき</h1>
       <p data-i="lead"></p>
     </div>
     <div class="card homeDock">
-      <div class="lvbox"><div class="lvrow"><b id="mLv">Lv.1</b><span id="mLvN"></span></div><div class="lvbar"><i id="mLvB"></i></div><div class="best" id="bestT"></div></div>
+      <div class="lvbox"><div class="lvrow"><b id="mLv">Lv.1</b><span id="mLvN"></span></div><div class="lvbar"><i id="mLvB"></i></div><div class="best" id="bestT"></div><div class="stock" id="mStock" hidden></div></div>
       <button class="go big" id="start" data-i="start">はじめる</button>
       <div class="menuGrid">
         <button id="toHow"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.4 7.6a2.7 2.7 0 1 1 3.8 2.4c-.8.4-1.2.9-1.2 1.8v.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="14.9" r="1.2" fill="currentColor"/></svg><span data-i="how">遊び方</span></button>
-        <button id="toSet"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="5" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="10" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="15" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/></svg><span data-i="settings">設定</span></button>
+        <button id="toSkin"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 9V4.5a1.5 1.5 0 0 1 3 0V9m0-1V3.5a1.5 1.5 0 0 1 3 0V8m0 0V4.5a1.5 1.5 0 0 1 3 0V11l1.2-1.6a1.4 1.4 0 0 1 2.3 1.6L15 16.5a3 3 0 0 1-2.6 1.5H9a4 4 0 0 1-4-4V9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i="skins">きせかえ</span><i class="dot" id="skDot" hidden></i></button>
+        <button id="toLb" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 17.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="7.5" y="5" width="5" height="12.5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2.5" y="10" width="5" height="7.5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="12.5" y="8" width="5" height="9.5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg><span data-i="lb">ランキング</span></button><button id="toAch" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 2.5l3.5 6 3.5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="12.5" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 10.3l.8 1.5 1.6.2-1.2 1.1.3 1.6-1.5-.8-1.5.8.3-1.6-1.2-1.1 1.6-.2z" fill="currentColor"/></svg><span data-i="ach">実績</span></button><button id="toSet"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="5" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="10" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="15" r="2.2" fill="#fff" stroke="currentColor" stroke-width="2"/></svg><span data-i="settings">設定</span></button>
       </div>
     </div>
   </div>
@@ -153,6 +200,25 @@ button.go.big{font-size:26px;padding:16px}
       <button class="back" data-back data-i="back">もどる</button>
     </div>
   </div>
+  <div class="ov home" id="ovSkin" hidden>
+    <div></div>
+    <div class="card homeDock skinCard">
+      <h2 data-i="skins">きせかえ</h2>
+      <div class="skRow"><span data-i="skHand">手</span><div class="skSw" id="sw-hand"></div></div>
+      <div class="skRow"><span data-i="skNail">爪</span><div class="skSw" id="sw-nail"></div></div>
+      <div class="skRow"><span data-i="skHair">毛</span><div class="skSw" id="sw-hair"></div></div>
+      <div class="skRow"><span data-i="skBg">背景</span><div class="skSw" id="sw-bg"></div></div>
+      <div class="skMsg" id="skMsg"></div>
+      <button class="back" data-back data-i="back">もどる</button>
+    </div>
+  </div>
+  <div class="ov" id="ovImg" hidden>
+    <div class="card imgCard">
+      <img id="shImg" alt="">
+      <p data-i="saveImg">画像を長押し(PCは右クリック)して保存してください</p>
+      <button class="back" id="imgBack" data-i="back">もどる</button>
+    </div>
+  </div>
   <div class="ov" id="ovRevive" hidden>
     <div class="card">
       <h2 data-i="revT">時間切れ!</h2>
@@ -170,9 +236,10 @@ button.go.big{font-size:26px;padding:16px}
       <div class="btns"><button id="retry" data-i="retry">やりなおす</button><button id="toMenu" data-i="menu">メニュー</button></div>
     </div>
   </div>
-  <div class="ov" id="ovEnd" hidden>
-    <div class="card">
-      <h2 id="reason"></h2>
+  <div class="ov endOv" id="ovEnd" hidden>
+    <div class="endTop"><canvas id="endFace" aria-hidden="true"></canvas><div class="say" id="endSay"></div></div>
+    <div class="card endCard">
+      <div class="endHead"><span id="reason"></span><span class="endLbl" data-i="score">スコア</span></div>
       <div class="big" id="fScore">0</div>
       <span class="rank" id="rank"></span>
       <span class="next" id="nextR"></span>
@@ -184,6 +251,7 @@ button.go.big{font-size:26px;padding:16px}
         <span data-i="rB">ベスト</span><span id="rB">0</span>
       </div>
       <div class="lvbox"><div class="lvrow"><b id="eLv">Lv.1</b><span id="eLvN"></span></div><div class="lvbar"><i id="eLvB"></i></div><span class="gain" id="eGain"></span></div>
+      <button class="adbtn" id="dblBtn" hidden></button><div class="shareRow"><button class="xbtn" id="xBtn" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3h4.2l3.6 5 4.2-5h1.8l-5.2 6.1L17.5 17h-4.2l-3.9-5.4L4.8 17H3l5.6-6.6z" fill="currentColor"/></svg><span data-i="xPost">Xでポスト</span></button><button class="sharebtn" id="shareBtn"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 12.5V2.5M6 6l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9H3.5v8.5h13V9H15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-i="share">結果をシェア</span></button></div>
       <div class="btns"><button class="go" id="again" data-i="again">もう一回</button><button id="endMenu" data-i="menu">メニュー</button></div>
     </div>
   </div>
@@ -195,43 +263,84 @@ const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
 const $=id=>document.getElementById(id);
 const C={tile:'#d6ebe6',grout:'#c1dad3',skin:'#f1c7a2',skinD:'#e3ad86',out:'#b97a57',crease:'#c58d69',nail:'#f7ddd0',nailE:'#e8bba8',hair:'#2a1c13',thick:'#14100c',gold:'#d6a01e',pain:'#e0412f',ink:'#1f2b33',bulb:'#fff7ee'};
 let W=0,H=0,u=1,fingers=[],palm,thumb;
-let hairs=[],parts=[],pops=[],scars=[],items=[],creams=[],itemT=6,iceT=0,tweezT=0,feverT=0;
+let feverCnt=0,hairs=[],parts=[],pops=[],scars=[],items=[],creams=[],itemT=6,iceT=0,tweezT=0,feverT=0;
 let state='title',score=0,pain=0,time=45,combo=0,maxCombo=0,plucked=0,perfect=0,spawnT=0,shake=0,grab=null,sound=true,actx=null,best=0,heat=[0,0,0,0],broken=0,revived=false,readyT=0,painMul=0.8;
 try{best=+localStorage.getItem('yubige-best')||0}catch(e){}
+let elapsed=0,iceBoostT=0,hideFace=false,noBg=false,nonSnap=0;
 const rnd=(a,b)=>a+Math.random()*(b-a);
 
 /* ---------- i18n ---------- */
 const T={
  ja:{doc:'指毛ぬき',score:'スコア',time:'のこり',pain:'いたみ',title:'指毛<br>ぬき',
   lead:'指に生えた<span class="tag">指毛</span>を、つまんで引っぱって抜く。45秒勝負。',
-  rules:['毛をつまんで、そのまま引っぱる','ときどき出るアイテムをタップ。脱毛クリーム・保冷剤・毛抜き・育毛剤','すばやく抜くと「スパッ!」。痛みが少なくコンボが続く','毛の向きに沿って引くと痛み半分。逆向きは激痛','逆向きや太い毛は途中でちぎれやすい。短く残った毛はつまみにくい','同じ指ばかり抜くとジンジンして痛い','痛かった分だけ得点が引かれる。痛みが満タンで終了','太い毛は25点、金の毛は100点','25コンボごとにフィーバー。6秒間すべて金の毛になり、痛みも半分'],
+  rules:['毛をつまんで、そのまま引っぱる','ときどき出るアイテムをタップ。脱毛クリーム・保冷剤・毛抜き・育毛剤','すばやく抜くと「スパッ!」。痛みが少なくコンボが続く','毛の向きに沿って引くと痛み半分。逆向きは激痛','逆向きや太い毛は途中でちぎれやすい。短く残った毛はつまみにくい','同じ指ばかり抜くとジンジンして痛い','痛かった分だけ得点が引かれる。痛みが満タンで終了','太い毛は25点、金の毛は100点','25コンボごとにフィーバー。6秒間すべて金の毛になり、痛みゲージも止まる。残り時間も+5秒'],
   start:'はじめる',sndOn:'音 ON',sndOff:'音 OFF',best:n=>`ベスト ${n}点`,timeUp:'時間切れ',painOut:'痛みの限界',
   rN:'抜いた本数',rP:'スパッ!',rC:'最大コンボ',rB:'ベスト',again:'もう一回',hairs:n=>n+'本',times:n=>n+'回',
   ranks:['毛根クラッシャー','ビビり','見習い','毛抜き係','毛流れ読み','指毛ハンター','金毛コレクター','つるつる職人','毛根マスター','伝説の毛抜き師','毛根の覇者','指毛の向こう側'],next:(n,r)=>`次のランクまで あと${n}点`,
-  snap:'スパッ!',ok:'ぬけた',ouch:'イテテ…',grain:'毛流れどおり',against:'逆毛!',sting:'ジンジン…',stuck:'ぬけない!',gold:'金の毛!',combo:n=>`${n} コンボ`,cream:'脱毛クリーム',ice:'保冷剤',tweez:'毛抜き',tonic:'育毛剤',sprout:'ニョキッ!',ready:'よーい…',goT:'スタート!',smooth:'つるん!',broke:'ちぎれた!',fever:'フィーバー!',tut:[['つまんで、引っぱる','毛に指を置いて、そのまま外へ引っぱると抜けます。45秒でたくさん抜こう。'],['すばやく抜くと「スパッ!」','一気に抜くほど痛みが少なく、コンボが続きます。もたもたすると痛い!'],['毛の向きに沿って引く','毛が生えている方向に引くと痛み半分。逆向きは激痛で、途中でちぎれることも。'],['痛いと点が減る','痛かった分だけスコアが引かれます。同じ指ばかり抜くとジンジン。痛みが満タンで終了。'],['アイテムとフィーバー','出てきたアイテムはタップで使用。25コンボごとに全部の毛が金色(1本100点)に!']],tutNext:'次へ',tutSkip:'スキップ',tutGo:'はじめる!',how:'遊び方',ranksT:'ランク',settings:'設定',back:'もどる',langL:'言語',soundL:'音',paused:'一時停止',resume:'つづける',retry:'やりなおす',menu:'メニュー',minus:'マイナス',from:n=>`${n}点〜`,revT:'時間切れ!',revP:'広告を見ると10秒延長して、続きから遊べます(1回だけ)。',revWatch:'広告を見て+10秒',revResume:'再開する',revNo:'やめる',revLoading:'広告を読み込み中…',revFail:'広告を表示できませんでした。',rBk:'ちぎれた回数',spT:'特別ランク',spGet:'特別ランク獲得!',lv:n=>`Lv.${n}`,lvNext:n=>`次のレベルまで あと${n}本`,lvUp:n=>`レベルアップ! Lv.${n}`,gained:n=>`通算 +${n}本`,sp:[['力まかせ','100本以上抜いたのにスコア3000点未満'],['ちぎり魔','15回以上ちぎった(スコア5000点未満)'],['即ギブアップ','開始15秒以内に痛みの限界']]},
+  snap:'スパッ!',ok:'ぬけた',ouch:'イテテ…',grain:'毛流れどおり',against:'逆毛!',sting:'ジンジン…',stuck:'ぬけない!',gold:'金の毛!',combo:n=>`${n} コンボ`,cream:'脱毛クリーム',ice:'保冷剤',tweez:'毛抜き',tonic:'育毛剤',sprout:'ニョキッ!',ready:'よーい…',goT:'スタート!',smooth:'つるん!',broke:'ちぎれた!',fever:'フィーバー!',tut:[['つまんで、引っぱる','毛に指を置いて、そのまま外へ引っぱると抜けます。45秒でたくさん抜こう。'],['すばやく抜くと「スパッ!」','一気に抜くほど痛みが少なく、コンボが続きます。もたもたすると痛い!'],['毛の向きに沿って引く','毛が生えている方向に引くと痛み半分。逆向きは激痛で、途中でちぎれることも。'],['痛いと点が減る','痛かった分だけスコアが引かれます。同じ指ばかり抜くとジンジン。痛みが満タンで終了。'],['アイテムとフィーバー','出てきたアイテムはタップで使用。25コンボごとに全部の毛が金色(1本100点)に!']],tutNext:'次へ',tutSkip:'スキップ',tutGo:'はじめる!',how:'遊び方',ranksT:'ランク',settings:'設定',back:'もどる',langL:'言語',soundL:'音',paused:'一時停止',resume:'つづける',retry:'やりなおす',menu:'メニュー',minus:'マイナス',from:n=>`${n}点〜`,revT:'時間切れ!',revP:'広告を見ると10秒延長して、続きから遊べます(1回だけ)。',revWatch:'広告を見て+10秒',revResume:'再開する',revNo:'やめる',revLoading:'広告を読み込み中…',revFail:'広告を表示できませんでした。',itemAd:'▶ 広告を見て、次のゲームにアイテムを持ちこむ',lvItem:s=>`レベルアップ報酬:${s}`,stockL:'持ちこみアイテム',itemGot:n=>`✓ 次のゲームで「${n}」をゲット!`,rBk:'ちぎれた回数',spT:'特別ランク',spGet:'特別ランク獲得!',lv:n=>`Lv.${n}`,lvNext:n=>`次のレベルまで あと${n}本`,lvUp:n=>`レベルアップ! Lv.${n}`,gained:n=>`通算 +${n}本`,sp:[['力まかせ','100本以上抜いたのにスコア3000点未満'],['ちぎり魔','15回以上ちぎった(スコア5000点未満)'],['即ギブアップ','開始15秒以内に痛みの限界']]},
  en:{doc:'Finger Fuzz',score:'SCORE',time:'TIME',pain:'PAIN',title:'Finger<br>Fuzz',
   lead:'Pinch the <span class="tag">finger hairs</span> and yank them out. You have 45 seconds.',
-  rules:['Pinch a hair and pull','Tap power-ups when they show up: hair removal cream, ice pack, tweezers, hair tonic','Yank fast for a SNAP! Less pain, and the combo keeps going','Pull with the grain for half the pain. Against it really hurts','Pulling against the grain or on thick hairs can break them. Stubs are hard to grab','Plucking the same finger over and over makes it sting','Pain costs you points. Max pain ends the game','Thick hairs are 25 pts, golden hairs 100 pts','Every 25-combo triggers FEVER: for 6 seconds all hairs turn gold and pain is halved'],
+  rules:['Pinch a hair and pull','Tap power-ups when they show up: hair removal cream, ice pack, tweezers, hair tonic','Yank fast for a SNAP! Less pain, and the combo keeps going','Pull with the grain for half the pain. Against it really hurts','Pulling against the grain or on thick hairs can break them. Stubs are hard to grab','Plucking the same finger over and over makes it sting','Pain costs you points. Max pain ends the game','Thick hairs are 25 pts, golden hairs 100 pts','Every 25-combo triggers FEVER: for 6 seconds all hairs turn gold, the pain meter freezes, and you get 5 extra seconds'],
   start:'Start',sndOn:'Sound ON',sndOff:'Sound OFF',best:n=>`Best: ${n} pts`,timeUp:"Time's up",painOut:'Too much pain',
   rN:'Hairs plucked',rP:'SNAPs',rC:'Max combo',rB:'Best',again:'Play again',hairs:n=>n,times:n=>n,
   ranks:['Root Wrecker','Scaredy Plucker','Rookie','Plucker','Grain Reader','Fuzz Hunter','Gold Collector','Smooth Operator','Root Master','Legendary Plucker','Root Conqueror','Beyond the Fuzz'],next:(n,r)=>`${n} pts to the next rank`,
-  snap:'SNAP!',ok:'Got it',ouch:'Ouch…',grain:'With the grain',against:'Against the grain!',sting:'Stinging…',stuck:'Stuck!',gold:'Golden hair!',combo:n=>`${n} COMBO`,cream:'Hair removal cream',ice:'Ice pack',tweez:'Tweezers',tonic:'Hair tonic',sprout:'Sprout!',ready:'Ready…',goT:'GO!',smooth:'Smooth!',broke:'Broke off!',fever:'FEVER!',tut:[['Pinch and pull','Put your finger on a hair and pull it outward. Pluck as many as you can in 45 seconds.'],['Yank fast for a SNAP!','The faster you pluck, the less it hurts, and your combo keeps going. Slow pulls hurt!'],['Pull with the grain','Pull the way the hair grows for half the pain. Against the grain hurts a lot, and the hair may break.'],['Pain costs points','Every bit of pain takes points off. Plucking the same finger over and over makes it sting. Max pain ends the game.'],['Items and FEVER','Tap items to use them. Every 25-combo turns all hairs gold, 100 points each!']],tutNext:'Next',tutSkip:'Skip',tutGo:"Let's go!",how:'How to play',ranksT:'Ranks',settings:'Settings',back:'Back',langL:'Language',soundL:'Sound',paused:'Paused',resume:'Resume',retry:'Restart',menu:'Menu',minus:'Below 0',from:n=>`${n}+`,revT:"Time's up!",revP:'Watch an ad to get 10 more seconds and keep playing (once per game).',revWatch:'Watch ad for +10s',revResume:'Resume',revNo:'No thanks',revLoading:'Loading ad…',revFail:"Couldn't show an ad.",rBk:'Broken hairs',spT:'Special ranks',spGet:'Special rank unlocked!',lv:n=>`Lv.${n}`,lvNext:n=>`${n} more hairs to next level`,lvUp:n=>`LEVEL UP! Lv.${n}`,gained:n=>`+${n} hairs total`,sp:[['Brute Plucker','100+ hairs plucked but under 3,000 pts'],['Hair Snapper','Broke 15+ hairs (under 5,000 pts)'],['Instant Quitter','Hit max pain within 15 seconds']]},
+  snap:'SNAP!',ok:'Got it',ouch:'Ouch…',grain:'With the grain',against:'Against the grain!',sting:'Stinging…',stuck:'Stuck!',gold:'Golden hair!',combo:n=>`${n} COMBO`,cream:'Hair removal cream',ice:'Ice pack',tweez:'Tweezers',tonic:'Hair tonic',sprout:'Sprout!',ready:'Ready…',goT:'GO!',smooth:'Smooth!',broke:'Broke off!',fever:'FEVER!',tut:[['Pinch and pull','Put your finger on a hair and pull it outward. Pluck as many as you can in 45 seconds.'],['Yank fast for a SNAP!','The faster you pluck, the less it hurts, and your combo keeps going. Slow pulls hurt!'],['Pull with the grain','Pull the way the hair grows for half the pain. Against the grain hurts a lot, and the hair may break.'],['Pain costs points','Every bit of pain takes points off. Plucking the same finger over and over makes it sting. Max pain ends the game.'],['Items and FEVER','Tap items to use them. Every 25-combo turns all hairs gold, 100 points each!']],tutNext:'Next',tutSkip:'Skip',tutGo:"Let's go!",how:'How to play',ranksT:'Ranks',settings:'Settings',back:'Back',langL:'Language',soundL:'Sound',paused:'Paused',resume:'Resume',retry:'Restart',menu:'Menu',minus:'Below 0',from:n=>`${n}+`,revT:"Time's up!",revP:'Watch an ad to get 10 more seconds and keep playing (once per game).',revWatch:'Watch ad for +10s',revResume:'Resume',revNo:'No thanks',revLoading:'Loading ad…',revFail:"Couldn't show an ad.",itemAd:'▶ Watch ad: start next game with an item',lvItem:s=>`Level-up reward: ${s}`,stockL:'Items for next games',itemGot:n=>`✓ You'll get "${n}" next game!`,rBk:'Broken hairs',spT:'Special ranks',spGet:'Special rank unlocked!',lv:n=>`Lv.${n}`,lvNext:n=>`${n} more hairs to next level`,lvUp:n=>`LEVEL UP! Lv.${n}`,gained:n=>`+${n} hairs total`,sp:[['Brute Plucker','100+ hairs plucked but under 3,000 pts'],['Hair Snapper','Broke 15+ hairs (under 5,000 pts)'],['Instant Quitter','Hit max pain within 15 seconds']]},
  zh:{doc:'拔指毛',score:'得分',time:'剩余',pain:'疼痛',title:'拔<br>指毛',
   lead:'捏住手指上的<span class="tag">指毛</span>,用力拔掉。限时45秒。',
-  rules:['捏住一根毛,往外拉','偶尔出现道具,点一下就能用:脱毛膏、冰袋、镊子、生发剂','拔得快就是「唰!」,疼得少,连击继续','顺着毛的方向拉,疼痛减半。逆着拉会很疼','逆毛或粗毛容易拉断,剩下的短毛很难捏','一直拔同一根手指会火辣辣地疼','疼多少就扣多少分。疼痛满格就结束','粗毛25分,金毛100分','每25连击进入狂热时间,6秒内全部变成金毛,疼痛减半'],
+  rules:['捏住一根毛,往外拉','偶尔出现道具,点一下就能用:脱毛膏、冰袋、镊子、生发剂','拔得快就是「唰!」,疼得少,连击继续','顺着毛的方向拉,疼痛减半。逆着拉会很疼','逆毛或粗毛容易拉断,剩下的短毛很难捏','一直拔同一根手指会火辣辣地疼','疼多少就扣多少分。疼痛满格就结束','粗毛25分,金毛100分','每25连击进入狂热时间,6秒内全部变成金毛,疼痛不再增加,时间+5秒'],
   start:'开始',sndOn:'声音 开',sndOff:'声音 关',best:n=>`最高 ${n}分`,timeUp:'时间到',painOut:'疼到极限',
   rN:'拔掉根数',rP:'唰!次数',rC:'最大连击',rB:'最高分',again:'再来一次',hairs:n=>n+'根',times:n=>n+'次',
   ranks:['毛根破坏者','胆小鬼','见习生','拔毛员','顺毛达人','指毛猎人','金毛收藏家','光溜溜大师','毛根大师','传说拔毛师','毛根霸主','超越指毛'],next:(n,r)=>`距离下一等级还差${n}分`,
-  snap:'唰!',ok:'拔掉了',ouch:'好疼…',grain:'顺毛',against:'逆毛!',sting:'火辣辣…',stuck:'拔不出来!',gold:'金毛!',combo:n=>`${n} 连击`,cream:'脱毛膏',ice:'冰袋',tweez:'镊子',tonic:'生发剂',sprout:'噌噌长!',ready:'预备…',goT:'开始!',smooth:'光溜溜!',broke:'断了!',fever:'狂热时间!',tut:[['捏住,往外拉','手指按住一根毛,直接往外拉就能拔掉。45秒内尽量多拔!'],['拔得快就是「唰!」','拔得越快越不疼,连击还能继续。慢吞吞地拉会很疼!'],['顺着毛的方向拉','顺着毛生长的方向拉,疼痛减半。逆着拉非常疼,还可能拉断。'],['疼了就扣分','疼多少就扣多少分。一直拔同一根手指会火辣辣地疼。疼痛满格就结束。'],['道具和狂热时间','出现的道具点一下就能用。每25连击所有毛都会变成金毛(每根100分)!']],tutNext:'下一步',tutSkip:'跳过',tutGo:'开始!',how:'玩法',ranksT:'等级',settings:'设置',back:'返回',langL:'语言',soundL:'声音',paused:'暂停',resume:'继续',retry:'重新开始',menu:'菜单',minus:'负分',from:n=>`${n}分以上`,revT:'时间到!',revP:'观看广告即可延长10秒继续游戏(每局一次)。',revWatch:'看广告+10秒',revResume:'继续游戏',revNo:'不用了',revLoading:'广告加载中…',revFail:'无法显示广告。',rBk:'拉断次数',spT:'特殊等级',spGet:'获得特殊等级!',lv:n=>`Lv.${n}`,lvNext:n=>`距离下一级还差${n}根`,lvUp:n=>`升级!Lv.${n}`,gained:n=>`累计 +${n}根`,sp:[['蛮力拔毛者','拔了100根以上却不到3000分'],['扯断狂','拉断15次以上(不到5000分)'],['秒投降','开局15秒内就疼到极限']]},
+  snap:'唰!',ok:'拔掉了',ouch:'好疼…',grain:'顺毛',against:'逆毛!',sting:'火辣辣…',stuck:'拔不出来!',gold:'金毛!',combo:n=>`${n} 连击`,cream:'脱毛膏',ice:'冰袋',tweez:'镊子',tonic:'生发剂',sprout:'噌噌长!',ready:'预备…',goT:'开始!',smooth:'光溜溜!',broke:'断了!',fever:'狂热时间!',tut:[['捏住,往外拉','手指按住一根毛,直接往外拉就能拔掉。45秒内尽量多拔!'],['拔得快就是「唰!」','拔得越快越不疼,连击还能继续。慢吞吞地拉会很疼!'],['顺着毛的方向拉','顺着毛生长的方向拉,疼痛减半。逆着拉非常疼,还可能拉断。'],['疼了就扣分','疼多少就扣多少分。一直拔同一根手指会火辣辣地疼。疼痛满格就结束。'],['道具和狂热时间','出现的道具点一下就能用。每25连击所有毛都会变成金毛(每根100分)!']],tutNext:'下一步',tutSkip:'跳过',tutGo:'开始!',how:'玩法',ranksT:'等级',settings:'设置',back:'返回',langL:'语言',soundL:'声音',paused:'暂停',resume:'继续',retry:'重新开始',menu:'菜单',minus:'负分',from:n=>`${n}分以上`,revT:'时间到!',revP:'观看广告即可延长10秒继续游戏(每局一次)。',revWatch:'看广告+10秒',revResume:'继续游戏',revNo:'不用了',revLoading:'广告加载中…',revFail:'无法显示广告。',itemAd:'▶ 看广告:下一局带着道具开始',lvItem:s=>`升级奖励:${s}`,stockL:'携带道具',itemGot:n=>`✓ 下一局获得「${n}」!`,rBk:'拉断次数',spT:'特殊等级',spGet:'获得特殊等级!',lv:n=>`Lv.${n}`,lvNext:n=>`距离下一级还差${n}根`,lvUp:n=>`升级!Lv.${n}`,gained:n=>`累计 +${n}根`,sp:[['蛮力拔毛者','拔了100根以上却不到3000分'],['扯断狂','拉断15次以上(不到5000分)'],['秒投降','开局15秒内就疼到极限']]},
  ko:{doc:'손가락 털 뽑기',score:'점수',time:'남은 시간',pain:'통증',title:'손가락 털<br>뽑기',
   lead:'손가락에 난 <span class="tag">털</span>을 집어서 쭉 뽑아요. 45초 승부.',
-  rules:['털을 집고 그대로 당기세요','가끔 나오는 아이템을 탭하세요: 제모 크림, 아이스팩, 족집게, 발모제','빠르게 뽑으면 「쏙!」. 덜 아프고 콤보가 이어져요','털 방향대로 당기면 통증 절반. 반대로 당기면 엄청 아파요','반대 방향이나 굵은 털은 중간에 끊기기 쉬워요. 짧게 남은 털은 집기 어려워요','같은 손가락만 뽑으면 욱신욱신 아파요','아픈 만큼 점수가 깎여요. 통증이 가득 차면 끝','굵은 털은 25점, 금색 털은 100점','25콤보마다 피버! 6초 동안 모든 털이 금색이 되고 통증도 절반'],
+  rules:['털을 집고 그대로 당기세요','가끔 나오는 아이템을 탭하세요: 제모 크림, 아이스팩, 족집게, 발모제','빠르게 뽑으면 「쏙!」. 덜 아프고 콤보가 이어져요','털 방향대로 당기면 통증 절반. 반대로 당기면 엄청 아파요','반대 방향이나 굵은 털은 중간에 끊기기 쉬워요. 짧게 남은 털은 집기 어려워요','같은 손가락만 뽑으면 욱신욱신 아파요','아픈 만큼 점수가 깎여요. 통증이 가득 차면 끝','굵은 털은 25점, 금색 털은 100점','25콤보마다 피버! 6초 동안 모든 털이 금색이 되고 통증 게이지도 멈추며 시간 +5초'],
   start:'시작',sndOn:'소리 ON',sndOff:'소리 OFF',best:n=>`최고 ${n}점`,timeUp:'시간 종료',painOut:'통증 한계',
   rN:'뽑은 털',rP:'쏙! 횟수',rC:'최대 콤보',rB:'최고 기록',again:'한 번 더',hairs:n=>n+'가닥',times:n=>n+'회',
   ranks:['모근 파괴자','겁쟁이','견습생','털 뽑기 담당','결 읽는 자','손가락 털 헌터','금털 수집가','매끈 장인','모근 마스터','전설의 털 뽑기 장인','모근 정복자','털 너머의 경지'],next:(n,r)=>`다음 랭크까지 ${n}점`,
-  snap:'쏙!',ok:'뽑혔다',ouch:'아야…',grain:'결대로',against:'역방향!',sting:'욱신욱신…',stuck:'안 뽑혀!',gold:'금색 털!',combo:n=>`${n} 콤보`,cream:'제모 크림',ice:'아이스팩',tweez:'족집게',tonic:'발모제',sprout:'쑥쑥!',ready:'준비…',goT:'시작!',smooth:'매끈!',broke:'끊어졌다!',fever:'피버!',tut:[['집고, 당기기','털에 손가락을 대고 바깥쪽으로 당기면 뽑혀요. 45초 동안 최대한 많이 뽑아 보세요.'],['빠르게 뽑으면 「쏙!」','빨리 뽑을수록 덜 아프고 콤보가 이어져요. 꾸물거리면 아파요!'],['털 방향대로 당기기','털이 난 방향으로 당기면 통증 절반. 반대로 당기면 엄청 아프고 중간에 끊어지기도 해요.'],['아프면 점수가 깎여요','아픈 만큼 점수가 줄어요. 같은 손가락만 뽑으면 욱신욱신. 통증이 가득 차면 끝.'],['아이템과 피버','나온 아이템은 탭해서 사용. 25콤보마다 모든 털이 금색(한 가닥 100점)으로!']],tutNext:'다음',tutSkip:'건너뛰기',tutGo:'시작!',how:'게임 방법',ranksT:'랭크',settings:'설정',back:'뒤로',langL:'언어',soundL:'소리',paused:'일시정지',resume:'계속하기',retry:'다시 하기',menu:'메뉴',minus:'마이너스',from:n=>`${n}점 이상`,revT:'시간 종료!',revP:'광고를 보면 10초 연장해서 이어서 플레이할 수 있어요(한 판에 한 번).',revWatch:'광고 보고 +10초',revResume:'다시 시작',revNo:'그만두기',revLoading:'광고 불러오는 중…',revFail:'광고를 표시할 수 없어요.',rBk:'끊어진 횟수',spT:'특별 랭크',spGet:'특별 랭크 획득!',lv:n=>`Lv.${n}`,lvNext:n=>`다음 레벨까지 ${n}가닥`,lvUp:n=>`레벨 업! Lv.${n}`,gained:n=>`누적 +${n}가닥`,sp:[['막무가내','100가닥 이상 뽑았는데 3000점 미만'],['끊어먹기 달인','15번 이상 끊어먹음(5000점 미만)'],['광속 포기','시작 15초 안에 통증 한계']]}
+  snap:'쏙!',ok:'뽑혔다',ouch:'아야…',grain:'결대로',against:'역방향!',sting:'욱신욱신…',stuck:'안 뽑혀!',gold:'금색 털!',combo:n=>`${n} 콤보`,cream:'제모 크림',ice:'아이스팩',tweez:'족집게',tonic:'발모제',sprout:'쑥쑥!',ready:'준비…',goT:'시작!',smooth:'매끈!',broke:'끊어졌다!',fever:'피버!',tut:[['집고, 당기기','털에 손가락을 대고 바깥쪽으로 당기면 뽑혀요. 45초 동안 최대한 많이 뽑아 보세요.'],['빠르게 뽑으면 「쏙!」','빨리 뽑을수록 덜 아프고 콤보가 이어져요. 꾸물거리면 아파요!'],['털 방향대로 당기기','털이 난 방향으로 당기면 통증 절반. 반대로 당기면 엄청 아프고 중간에 끊어지기도 해요.'],['아프면 점수가 깎여요','아픈 만큼 점수가 줄어요. 같은 손가락만 뽑으면 욱신욱신. 통증이 가득 차면 끝.'],['아이템과 피버','나온 아이템은 탭해서 사용. 25콤보마다 모든 털이 금색(한 가닥 100점)으로!']],tutNext:'다음',tutSkip:'건너뛰기',tutGo:'시작!',how:'게임 방법',ranksT:'랭크',settings:'설정',back:'뒤로',langL:'언어',soundL:'소리',paused:'일시정지',resume:'계속하기',retry:'다시 하기',menu:'메뉴',minus:'마이너스',from:n=>`${n}점 이상`,revT:'시간 종료!',revP:'광고를 보면 10초 연장해서 이어서 플레이할 수 있어요(한 판에 한 번).',revWatch:'광고 보고 +10초',revResume:'다시 시작',revNo:'그만두기',revLoading:'광고 불러오는 중…',revFail:'광고를 표시할 수 없어요.',itemAd:'▶ 광고 보고 다음 판에 아이템 가져가기',lvItem:s=>`레벨업 보상: ${s}`,stockL:'가져갈 아이템',itemGot:n=>`✓ 다음 판에서 「${n}」 획득!`,rBk:'끊어진 횟수',spT:'특별 랭크',spGet:'특별 랭크 획득!',lv:n=>`Lv.${n}`,lvNext:n=>`다음 레벨까지 ${n}가닥`,lvUp:n=>`레벨 업! Lv.${n}`,gained:n=>`누적 +${n}가닥`,sp:[['막무가내','100가닥 이상 뽑았는데 3000점 미만'],['끊어먹기 달인','15번 이상 끊어먹음(5000점 미만)'],['광속 포기','시작 15초 안에 통증 한계']]}
 };
-let lang='ja';
+
+const T2={
+ ja:{share:'結果をシェア',lb:'ランキング',ach:'実績',hint:'つまんで、外へ引っぱる!',shSub:'45秒スコアアタック',shNew:'自己ベスト',shCta:'あなたの指毛、何点?',shStats:(p,c)=>`${p}本ぬいて、最大${c}コンボ`,shStore:'App Store「指毛抜き」',shText:n=>`指毛ぬきで${n}点!この記録、抜ける?`,shSaved:'画像を保存しました'},
+ en:{share:'Share result',lb:'Leaderboard',ach:'Achievements',hint:'Pinch it and pull outward!',shSub:'45-SECOND SCORE ATTACK',shNew:'NEW BEST',shCta:'How many can you pluck?',shStats:(p,c)=>`${p} hairs plucked · ${c} max combo`,shStore:'Finger Fuzz on the App Store',shText:n=>`I scored ${n} in Finger Fuzz! Can you beat it?`,shSaved:'Image saved'},
+ zh:{share:'分享结果',lb:'排行榜',ach:'成就',hint:'捏住,往外拉!',shSub:'45秒得分挑战',shNew:'新纪录',shCta:'你的指毛能拿几分?',shStats:(p,c)=>`拔了${p}根 · 最高${c}连击`,shStore:'App Store「指毛抜き」',shText:n=>`我在拔指毛里拿了${n}分!你能超过吗?`,shSaved:'图片已保存'},
+ ko:{share:'결과 공유',lb:'랭킹',ach:'업적',hint:'집어서 바깥으로 당기기!',shSub:'45초 스코어 어택',shNew:'최고 기록',shCta:'네 손가락 털은 몇 점?',shStats:(p,c)=>`${p}가닥 뽑고 최대 ${c}콤보`,shStore:'App Store「손가락 털 뽑기」',shText:n=>`손가락 털 뽑기에서 ${n}점! 이 기록 깰 수 있어?`,shSaved:'이미지를 저장했어요'}
+};
+for(const k in T2)Object.assign(T[k],T2[k]);
+
+const T3={
+ ja:{skins:'きせかえ',skHand:'手',skNail:'爪',skHair:'毛',skBg:'背景',skLv:n=>`Lv.${n}で解禁`,skBest:n=>`ベスト${n}点で解禁`,skCombo:n=>`${n}コンボ達成で解禁`,skSecret:'??? 隠し条件',skNew:'新しいスキン解禁!',skNeko:'招き猫の手をゲット!',plus5:'+5秒',sp4:['ラッキーセブン','スコアがぴったり7777点'],
+  say:{start:'やさしくね…',ouch:['イッ!','痛っ!','ぎゃっ!'],against:['逆だって!','そっちじゃない!'],brk:['ちぎれたぁ!'],sting:['そこばっかり!','ジンジンする…'],fever:['何も感じない…!','無敵だ!'],limit:['もうムリ!','やめてぇ!'],held:['早く抜いて!']}},
+ en:{skins:'Skins',skHand:'Hand',skNail:'Nails',skHair:'Hair',skBg:'Scene',skLv:n=>`Unlocks at Lv.${n}`,skBest:n=>`Unlocks at a best of ${n}`,skCombo:n=>`Unlocks with a ${n} combo`,skSecret:'??? Secret',skNew:'New skin unlocked!',skNeko:'You got the Lucky Cat paw!',plus5:'+5 sec',sp4:['Lucky Sevens','Score exactly 7,777'],
+  say:{start:'Be gentle…',ouch:['Ow!','Yowch!','Eek!'],against:['Wrong way!'],brk:['It snapped!'],sting:['Not that one again!','It stings…'],fever:['I feel nothing!','Unstoppable!'],limit:['No more!','Stop!!'],held:['Just pull it!']}},
+ zh:{skins:'换装',skHand:'手',skNail:'指甲',skHair:'毛',skBg:'背景',skLv:n=>`Lv.${n}解锁`,skBest:n=>`最高${n}分解锁`,skCombo:n=>`达成${n}连击解锁`,skSecret:'??? 隐藏条件',skNew:'解锁新皮肤!',skNeko:'获得招财猫之手!',plus5:'+5秒',sp4:['幸运七','得分正好7777'],
+  say:{start:'轻一点…',ouch:['嘶!','疼!','啊!'],against:['方向反了!'],brk:['断了啦!'],sting:['别老拔那根!','火辣辣的…'],fever:['完全不疼!','无敌了!'],limit:['不行了!','快住手!'],held:['快点拔!']}},
+ ko:{skins:'꾸미기',skHand:'손',skNail:'손톱',skHair:'털',skBg:'배경',skLv:n=>`Lv.${n}에 해제`,skBest:n=>`최고 ${n}점에 해제`,skCombo:n=>`${n}콤보 달성 시 해제`,skSecret:'??? 숨겨진 조건',skNew:'새 스킨 해제!',skNeko:'마네키네코 손 획득!',plus5:'+5초',sp4:['럭키 세븐','점수가 정확히 7777점'],
+  say:{start:'살살 해 줘…',ouch:['앗!','아야!','으악!'],against:['반대라고!'],brk:['끊어졌잖아!'],sting:['거기만 뽑지 마!','욱신거려…'],fever:['하나도 안 아파!','무적이다!'],limit:['더는 못 해!','그만해!'],held:['빨리 뽑아!']}}
+};
+for(const k in T3){Object.assign(T[k],T3[k]);T[k].sp=T[k].sp.concat([T3[k].sp4]);}
+
+const T4={
+ ja:{spx:[['マイナスの住人','スコアがマイナスで終了'],['無の境地','1本も抜かずに時間切れ'],['スパッの達人','60本以上すべてスパッ!で抜く(ちぎれなし)'],['フィーバー中毒','1回のゲームでフィーバー4回']],skGotS:'隠しスキンをゲット!',skHint:{neko:'ヒント:ラッキーな数字',zombie:'ヒント:どん底まで落ちろ',ghost:'ヒント:何もしない勇気',gold:'ヒント:全部スパッと',robot:'ヒント:コンボの鬼',k5:'ヒント:フィーバーしまくれ'}},
+ en:{spx:[['Below Zero','Finish with a negative score'],['Inner Peace','Run out the clock without plucking a single hair'],['Flawless','Pluck 60+ hairs, every one a SNAP, none broken'],['Fever Addict','Trigger FEVER 4 times in one game']],skGotS:'Secret skin unlocked!',skHint:{neko:'Hint: a lucky number',zombie:'Hint: hit rock bottom',ghost:'Hint: the courage to do nothing',gold:'Hint: SNAP every single one',robot:'Hint: combo machine',k5:'Hint: more FEVER'}},
+ zh:{spx:[['负分居民','以负分结束'],['无我之境','一根都不拔直到时间结束'],['唰之达人','拔60根以上且全部「唰!」(没有拉断)'],['狂热上瘾','一局进入4次狂热时间']],skGotS:'获得隐藏皮肤!',skHint:{neko:'提示:幸运数字',zombie:'提示:跌到谷底',ghost:'提示:什么都不做的勇气',gold:'提示:每根都要唰',robot:'提示:连击狂魔',k5:'提示:多多狂热'}},
+ ko:{spx:[['마이너스 주민','마이너스 점수로 종료'],['무의 경지','한 가닥도 안 뽑고 시간 종료'],['쏙의 달인','60가닥 이상 전부 「쏙!」(끊김 없음)'],['피버 중독','한 판에 피버 4번']],skGotS:'숨겨진 스킨 획득!',skHint:{neko:'힌트: 행운의 숫자',zombie:'힌트: 바닥까지 떨어져 봐',ghost:'힌트: 아무것도 안 하는 용기',gold:'힌트: 전부 쏙!',robot:'힌트: 콤보의 귀신',k5:'힌트: 피버를 더'}}
+};
+for(const k in T4){Object.assign(T[k],T4[k]);T[k].sp=T[k].sp.concat(T4[k].spx);}
+
+const T5={
+ ja:{ptsU:'点',q:{brute:'雑すぎるって!',snap:'ちぎらないで…',quit:'もう二度とやらない…',lucky:'なんか縁起いい!',minus:'ぜんぶ痛かった…',zen:'…え、抜かないの?',flaw:'ぜんぜん痛くなかった!',fever4:'金色の夢を見た…',painOut:'もう限界…',s0:'痛いだけだった…',s1:'まだヒリヒリする…',s2:'けっこう上手いじゃん',s3:'ほとんど痛くない!',s4:'プロの手つき…!'}},
+ en:{ptsU:'pts',q:{brute:'Way too rough!',snap:'Stop snapping them…',quit:'Never again…',lucky:'Feels lucky!',minus:'It ALL hurt…',zen:"…Aren't you going to pluck?",flaw:"Didn't feel a thing!",fever4:'I dreamed in gold…',painOut:"I can't take it…",s0:'That just hurt…',s1:'Still stinging…',s2:'Not bad at all',s3:'Barely felt it!',s4:'Pro-level hands…!'}},
+ zh:{ptsU:'分',q:{brute:'太粗暴了!',snap:'别再拉断了…',quit:'再也不玩了…',lucky:'好像很吉利!',minus:'全都好疼…',zen:'…你不拔吗?',flaw:'一点都不疼!',fever4:'做了个金色的梦…',painOut:'到极限了…',s0:'只有疼…',s1:'还在火辣辣…',s2:'挺厉害的嘛',s3:'几乎不疼!',s4:'专业级手法…!'}},
+ ko:{ptsU:'점',q:{brute:'너무 거칠잖아!',snap:'그만 좀 끊어…',quit:'다시는 안 해…',lucky:'왠지 운이 좋아!',minus:'전부 아팠어…',zen:'…안 뽑아?',flaw:'하나도 안 아팠어!',fever4:'황금빛 꿈을 꿨어…',painOut:'이제 한계야…',s0:'아프기만 했어…',s1:'아직 얼얼해…',s2:'꽤 잘하는데?',s3:'거의 안 아파!',s4:'프로의 손놀림…!'}}
+};
+for(const k in T5)Object.assign(T[k],T5[k]);
+Object.assign(T.ja,{xPost:'Xでポスト',imgShare:'画像でシェア',saveImg:'画像を長押し(PCは右クリック)して保存してください'});
+Object.assign(T.en,{xPost:'Post on X',imgShare:'Share image',saveImg:'Long-press the image (right-click on PC) to save it'});
+Object.assign(T.zh,{xPost:'发到X',imgShare:'分享图片',saveImg:'长按图片(电脑上右键)即可保存'});
+Object.assign(T.ko,{xPost:'X에 올리기',imgShare:'이미지 공유',saveImg:'이미지를 길게 누르거나(PC는 우클릭) 저장하세요'});
+let lang=(()=>{const n=(navigator.language||'').toLowerCase();return n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':n.startsWith('ko')?'ko':'en';})();
 try{const s=localStorage.getItem('yubige-lang');if(T[s])lang=s;else{const n=(navigator.language||'').toLowerCase();lang=n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':n.startsWith('ko')?'ko':'en';}}catch(e){}
 let L=T[lang];
 const dfont=s=>lang==='ko'?`900 ${s}px "Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Malgun Gothic",sans-serif`:lang==='zh'?`900 ${s}px "Noto Sans SC","PingFang SC",sans-serif`:`${s}px "Dela Gothic One",sans-serif`;
@@ -243,17 +352,29 @@ function applyLang(){
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
   const sb=document.getElementById('snd');if(sb)sb.textContent=sound?L.sndOn:L.sndOff;
   const bt=document.getElementById('bestT');if(bt)bt.textContent=best?L.best(best):'';
-  renderRanks();renderLevel('m');
+  renderRanks();renderLevel('m');renderStock();
   if(document.getElementById('ovHow')&&!document.getElementById('ovHow').hidden&&typeof TUT_ART!=='undefined')renderTut();
 }
-const SPECIAL=[()=>plucked>=100&&score<3000,()=>broken>=15&&score<5000,r=>r===L.painOut&&time>30];
+const SPECIAL=[()=>plucked>=100&&score<3000,()=>broken>=15&&score<5000,r=>r===L.painOut&&elapsed<15,()=>false];
 let spGot=[];try{spGot=JSON.parse(localStorage.getItem('yubige-sp')||'[]')}catch(e){}
 let total=0;try{total=+localStorage.getItem('yubige-total')||0}catch(e){}
 function lvInfo(t){let lv=1,need=50,base=0;while(t>=base+need){base+=need;lv++;need=50+25*(lv-1);}return {lv,into:t-base,need};}
 function renderLevel(p){const a=document.getElementById(p+'Lv');if(!a)return;const i=lvInfo(total);a.textContent=L.lv(i.lv);document.getElementById(p+'LvN').textContent=L.lvNext(i.need-i.into);document.getElementById(p+'LvB').style.width=(i.into/i.need*100)+'%';}
 let committed=true;
-function commitPlucks(){if(committed)return 0;committed=true;const before=lvInfo(total).lv;total+=plucked;try{localStorage.setItem('yubige-total',total)}catch(e){}return lvInfo(total).lv-before;}
-const RANK_LO=[-Infinity,0,3000,5000,7500,10000,13000,16000,20000,25000,32000,40000];
+let stock=[];try{stock=JSON.parse(localStorage.getItem('yubige-stock')||'[]');if(!Array.isArray(stock))stock=[];}catch(e){}
+function saveStock(){try{localStorage.setItem('yubige-stock',JSON.stringify(stock))}catch(e){}}
+const ITEM_KINDS=['cream','ice','tweez','tonic'];
+let lastGot=[];
+function commitPlucks(){if(committed)return 0;committed=true;const before=lvInfo(total).lv;total+=plucked;try{localStorage.setItem('yubige-total',total)}catch(e){}
+  const after=lvInfo(total).lv,up=after-before;lastGot=[];for(let lv=before+1;lv<=after;lv++){if(lv%5===0&&stock.length<3){const k=ITEM_KINDS[Math.floor(Math.random()*4)];stock.push(k);lastGot.push(k);}}if(lastGot.length)saveStock();return up;}
+const ITEM_ICON={cream:'<svg viewBox="-16 -16 32 32" aria-hidden="true"><g transform="rotate(-35)"><rect x="-11" y="-5" width="17" height="10" rx="2" fill="#fdf6f9" stroke="#1f2b33" stroke-width="2"/><rect x="6" y="-3.5" width="6" height="7" rx="1.5" fill="#f27ea0" stroke="#1f2b33" stroke-width="2"/></g></svg>',ice:'<svg viewBox="-16 -16 32 32" aria-hidden="true"><rect x="-11" y="-9" width="22" height="18" rx="5" fill="#bfe6ff" stroke="#1f2b33" stroke-width="2"/></svg>',tweez:'<svg viewBox="-16 -16 32 32" aria-hidden="true"><path d="M-2-12l-3 22M2-12l3 22" stroke="#7d8b97" stroke-width="3.5" stroke-linecap="round"/></svg>',tonic:'<svg viewBox="-16 -16 32 32" aria-hidden="true"><rect x="-8" y="-5" width="16" height="16" rx="4" fill="#8fd6a0" stroke="#1f2b33" stroke-width="2"/><rect x="-4.5" y="-12" width="9" height="7" rx="2" fill="#2f8a5a" stroke="#1f2b33" stroke-width="2"/></svg>'};
+function renderTray(){const t=document.getElementById('tray');if(!t)return;
+  const on=(state==='play'||state==='ready')&&stock.length>0;t.hidden=!on;if(!on)return;
+  t.innerHTML=stock.map((k,i)=>`<button class="trayBtn" data-idx="${i}" aria-label="${L[k]}">${ITEM_ICON[k]}</button>`).join('');
+  t.querySelectorAll('.trayBtn').forEach(b=>b.onclick=e=>{e.stopPropagation();if(state!=='play')return;const i=+b.dataset.idx,k=stock[i];if(!k)return;stock.splice(i,1);saveStock();renderStock();
+    const r=b.getBoundingClientRect(),c=cv.getBoundingClientRect();useItem({k,x:r.left-c.left+r.width/2,y:r.top-c.top});renderTray();});}
+function renderStock(){const el=document.getElementById('mStock');if(!el)return;el.textContent=stock.length?L.stockL+': '+stock.map(k=>L[k]).join('・'):'';el.hidden=!stock.length;}
+const RANK_LO=[-Infinity,0,3000,5000,8000,11000,15000,19000,24000,30000,38000,48000];
 function renderRanks(){
   const el=document.getElementById('rankList');if(!el)return;
   let cur=-1;if(best>0||localStorage_has())for(let i=0;i<RANK_LO.length;i++)if(best>=RANK_LO[i])cur=i;
@@ -262,18 +383,116 @@ function renderRanks(){
 function localStorage_has(){try{return localStorage.getItem('yubige-best')!==null}catch(e){return false}}
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem('yubige-lang',lang)}catch(e){}applyLang();});
 
+
+/* ---------- skins ---------- */
+const SK={
+ hand:[
+  {id:'h0',c:'#f1c7a2',skinD:'#e3ad86',out:'#b97a57',crease:'#c58d69',nail:'#f7ddd0',nailE:'#e8bba8',hi:'rgba(255,236,218,.55)',ten:'rgba(197,141,105,.25)'},
+  {id:'h1',c:'#fae0cc',skinD:'#efc4a8',out:'#c99272',crease:'#d9a685',nail:'#fdeee6',nailE:'#eec9b8',hi:'rgba(255,246,238,.6)',ten:'rgba(210,160,125,.22)'},
+  {id:'h2',c:'#d9a273',skinD:'#c68a5c',out:'#96603a',crease:'#a9744c',nail:'#ecc4a6',nailE:'#d3a380',hi:'rgba(244,205,170,.5)',ten:'rgba(150,96,58,.25)'},
+  {id:'h3',c:'#a8703f',skinD:'#925c30',out:'#6b3f1c',crease:'#7d4d27',nail:'#d7a67f',nailE:'#b78558',hi:'rgba(212,160,112,.45)',ten:'rgba(107,63,28,.28)'},
+  {id:'h4',c:'#6f4526',skinD:'#5d371c',out:'#3d2210',crease:'#4d2c15',nail:'#b98c6a',nailE:'#97694a',hi:'rgba(160,112,74,.45)',ten:'rgba(50,28,12,.3)'},
+  {id:'neko',c:'#fbf7f0',skinD:'#ece4d8',out:'#a8998a',crease:'#d3c7b8',nail:'#f6a6b8',nailE:'#e07f97',hi:'rgba(255,255,255,.7)',ten:'rgba(190,175,160,.25)',hid:1,un:{sp:3}},
+  {id:'zombie',c:'#9cc48a',skinD:'#84ad73',out:'#4f7a45',crease:'#6b9460',nail:'#5d6b4a',nailE:'#3f4a31',hi:'rgba(205,232,188,.5)',ten:'rgba(79,122,69,.3)',hid:1,un:{sp:4}},
+  {id:'ghost',c:'#e6eef8',skinD:'#d2deee',out:'#9fb2cc',crease:'#bccbe0',nail:'#f5f9ff',nailE:'#c3d1e6',hi:'rgba(255,255,255,.7)',ten:'rgba(159,178,204,.25)',hid:1,un:{sp:5}},
+  {id:'gold',c:'#e9c04a',skinD:'#d4a62e',out:'#9a7412',crease:'#b88f1f',nail:'#fff0b8',nailE:'#d9b03a',hi:'rgba(255,246,204,.6)',ten:'rgba(154,116,18,.3)',hid:1,un:{sp:6}},
+  {id:'robot',c:'#b9c2c9',skinD:'#a3adb5',out:'#5f6b75',crease:'#7f8b95',nail:'#7fd4e8',nailE:'#3d9bb3',hi:'rgba(255,255,255,.5)',ten:'rgba(95,107,117,.3)',hid:1,un:{ach:'c150'}}],
+ nail:[{id:'n0'},{id:'n1',c:'#e0412f',e:'#a82a1c',un:{lv:3}},{id:'n2',c:'#9fdcc8',e:'#6fb8a2',un:{lv:6}},{id:'n3',c:'#2a2f36',e:'#101316',un:{lv:10}},{id:'n4',c:'#e3b23c',e:'#b58318',un:{best:16000}}],
+ hair:[{id:'k0',c:'#2a1c13',t:'#14100c'},{id:'k1',c:'#7a4a22',t:'#5a3414',un:{lv:2}},{id:'k2',c:'#b5452b',t:'#8c2f1a',un:{lv:5}},{id:'k3',c:'#8d979c',t:'#687277',un:{lv:12}},{id:'k4',c:'#2f6fb5',t:'#1f4f86',un:{combo:50}},{id:'k5',c:'#d0458a',t:'#8c2f6a',rainbow:1,hid:1,un:{sp:7}}],
+ bg:[{id:'b0',c:'#d6ebe6',g:'#c1dad3',p:'tile'},{id:'b1',c:'#f6dbe3',g:'#e8c2cd',p:'tile',un:{lv:4}},{id:'b2',c:'#d9b98c',g:'#c29f70',p:'wood',un:{lv:8}},{id:'b3',c:'#1b2238',g:'#ffffff',p:'space',un:{best:10000}}]};
+let skin={hand:'h0',nail:'n0',hair:'k0',bg:'b0'};try{Object.assign(skin,JSON.parse(localStorage.getItem('yubige-skin')||'{}'))}catch(e){}
+let skSeen=null;try{skSeen=JSON.parse(localStorage.getItem('yubige-skseen')||'null')}catch(e){}
+function skOpen(s){const q=s.un;if(!q)return true;if(q.lv)return lvInfo(total).lv>=q.lv;if(q.best)return best>=q.best;if(q.combo)return achGot.includes('c50');if(q.sp!==undefined)return spGot.includes(q.sp);if(q.ach)return achGot.includes(q.ach);return true;}
+function skGet(cat){return SK[cat].find(s=>s.id===skin[cat])||SK[cat][0];}
+function applySkin(){const h=skGet('hand'),n=skGet('nail'),k=skGet('hair'),b=skGet('bg');
+  C.skin=h.c;C.skinD=h.skinD;C.out=h.out;C.crease=h.crease;C.hi=h.hi;C.ten=h.ten;C.nail=n.c||h.nail;C.nailE=n.e||h.nailE;C.hair=k.c;C.thick=k.t;C.rainbow=!!k.rainbow;C.tile=b.c;C.grout=b.g;C.bgp=b.p;}
+applySkin();
+const LOCK='<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+function skCond(s){const q=s.un;if(s.hid)return L.skHint[s.id]||L.skSecret;return q.lv?L.skLv(q.lv):q.best?L.skBest(q.best):q.combo?L.skCombo(q.combo):L.skSecret;}
+function renderSkins(){
+  const names={hand:L.skHand,nail:L.skNail,hair:L.skHair,bg:L.skBg};
+  for(const cat of ['hand','nail','hair','bg']){const el=$('sw-'+cat);el.innerHTML='';
+    SK[cat].forEach((s,i)=>{const open=skOpen(s),secret=!!s.hid&&!open,b=document.createElement('button');b.type='button';b.className='sw'+(open?'':' lock');
+      b.style.background=secret?'#8a959b':(s.c||skGet('hand').nail);b.setAttribute('aria-pressed',skin[cat]===s.id?'true':'false');b.setAttribute('aria-label',names[cat]+' '+(i+1)+(open?'':' 🔒'));
+      if(!open)b.innerHTML=secret?'<b>?</b>':LOCK;
+      b.onclick=()=>{if(!skOpen(s)){$('skMsg').textContent=skCond(s);return;}
+        skin[cat]=s.id;try{localStorage.setItem('yubige-skin',JSON.stringify(skin))}catch(e){}applySkin();renderSkins();$('skMsg').textContent='';};
+      el.appendChild(b);});}
+}
+function skUnlocked(){const a=[];for(const cat in SK)for(const s of SK[cat])if(s.un&&skOpen(s))a.push(s.id);return a;}
+function skFresh(){const now=skUnlocked();return skSeen?now.filter(i=>!skSeen.includes(i)):now;}
+function skMarkSeen(){skSeen=skUnlocked();try{localStorage.setItem('yubige-skseen',JSON.stringify(skSeen));localStorage.removeItem('yubige-skdot')}catch(e){}$('skDot').hidden=true;}
+function openSkins(){$('skMsg').textContent='';renderSkins();skMarkSeen();show('ovSkin');}
+
+/* ---------- the hand's owner ---------- */
+let face={mood:'calm',t:0,say:'',sayT:0,jolt:0,warned:false};
+function chirp(f0,f1,dur,type,vol){if(!sound||!actx)return;try{const o=actx.createOscillator(),g=actx.createGain(),t=actx.currentTime;o.type=type;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+dur);
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(g);g.connect(actx.destination);o.start();o.stop(t+dur+0.03);}catch(e){}}
+function react(mood,line){face.mood=mood;face.t=mood==='fever'?1.2:0.7;face.jolt=mood==='ouch'||mood==='scream'?1:0.4;
+  if(line){face.say=Array.isArray(line)?line[Math.floor(Math.random()*line.length)]:line;face.sayT=1.2;}
+  if(mood==='ouch')chirp(640,360,0.16,'triangle',0.07);else if(mood==='scream')chirp(520,940,0.24,'sawtooth',0.045);else if(mood==='fever')chirp(520,1040,0.26,'triangle',0.06);}
+function paintFace(g,r,m,neko,pv,fv){
+  g.lineJoin='round';g.lineCap='round';
+  g.fillStyle=m==='fever'?'#ffe9a8':(m==='ouch'||m==='scream'||m==='panic'||m==='hurt'||m==='cry')?'#ffd9d2':'#ffffff';g.strokeStyle=C.ink;g.lineWidth=3;g.beginPath();g.arc(0,0,r,0,7);g.fill();g.stroke();
+  const hr=r*0.64,hy=r*0.1,lw=Math.max(2,r*0.07);
+  g.fillStyle=C.skin;g.strokeStyle=C.out;g.lineWidth=lw;
+  if(neko){for(const sx of [-1,1]){g.beginPath();g.moveTo(sx*hr*0.95,hy-hr*0.35);g.lineTo(sx*hr*0.78,hy-hr*1.22);g.lineTo(sx*hr*0.25,hy-hr*0.88);g.closePath();g.fill();g.stroke();}}
+  else{for(const sx of [-1,1]){g.beginPath();g.arc(sx*hr*0.98,hy+hr*0.05,hr*0.2,0,7);g.fill();g.stroke();}}
+  g.beginPath();g.arc(0,hy,hr,0,7);g.fill();g.stroke();
+  if(!neko){g.fillStyle=C.thick;g.beginPath();g.arc(0,hy,hr+lw*0.4,Math.PI*1.12,Math.PI*1.88);g.quadraticCurveTo(0,hy-hr*0.62,-hr*0.93,hy-hr*0.37);g.fill();}
+  if(pv>=40&&!fv){g.fillStyle=`rgba(224,65,47,${Math.min(0.4,(pv-40)/150)})`;g.beginPath();g.arc(0,hy,hr-lw*0.5,0,7);g.fill();}
+  const ex=hr*0.38,ey=hy-hr*0.02,es=hr*0.17,ink=C.ink;
+  g.strokeStyle=ink;g.fillStyle=ink;g.lineWidth=lw;
+  const dot=(x)=>{g.beginPath();g.arc(x,ey,es*0.55,0,7);g.fill();};
+  const squint=(x,d)=>{g.beginPath();g.moveTo(x-d*es,ey-es*0.8);g.lineTo(x+d*es,ey);g.lineTo(x-d*es,ey+es*0.8);g.stroke();};
+  const wide=(x)=>{g.fillStyle='#fff';g.beginPath();g.arc(x,ey,es*1.25,0,7);g.fill();g.stroke();g.fillStyle=ink;g.beginPath();g.arc(x,ey,es*0.35,0,7);g.fill();};
+  const star=(x)=>{g.fillStyle=C.gold;g.beginPath();for(let k=0;k<10;k++){const a=-Math.PI/2+k*Math.PI/5,q=k%2?es*0.55:es*1.3;g.lineTo(x+Math.cos(a)*q,ey+Math.sin(a)*q);}g.closePath();g.fill();g.fillStyle=ink;};
+  const my=hy+hr*0.48;
+  if(m==='fever'){star(-ex);star(ex);g.fillStyle='#7a1f14';g.beginPath();g.arc(0,my-hr*0.08,hr*0.3,0,Math.PI);g.closePath();g.fill();}
+  else if(m==='ouch'||m==='hurt'){squint(-ex,1);squint(ex,-1);
+    if(m==='ouch'){g.fillStyle='#7a1f14';g.beginPath();g.ellipse(0,my,hr*0.2,hr*0.26,0,0,7);g.fill();}
+    else{g.beginPath();g.moveTo(-hr*0.3,my);for(let k=1;k<=4;k++)g.lineTo(-hr*0.3+k*hr*0.15,my+(k%2?-1:1)*hr*0.08);g.stroke();}}
+  else if(m==='panic'||m==='scream'){wide(-ex);wide(ex);g.fillStyle='#7a1f14';g.beginPath();g.ellipse(0,my+hr*0.04,hr*0.26,hr*0.34,0,0,7);g.fill();g.fillStyle='#f28a8a';g.beginPath();g.ellipse(0,my+hr*0.24,hr*0.14,hr*0.1,0,0,7);g.fill();}
+  else if(m==='cry'){for(const x of [-ex,ex]){g.beginPath();g.arc(x,ey+es*0.4,es*0.9,Math.PI*1.15,Math.PI*1.85);g.stroke();}
+    g.beginPath();g.arc(0,my+hr*0.3,hr*0.24,Math.PI*1.15,Math.PI*1.85);g.stroke();
+    g.fillStyle='#6cc3ee';g.strokeStyle='#3a9bd0';g.lineWidth=lw*0.6;for(const x of [-ex,ex]){g.beginPath();g.roundRect(x-es*0.5,ey+es*0.3,es*1.0,hr*0.85,es*0.5);g.fill();g.stroke();}
+    g.strokeStyle=ink;g.lineWidth=lw;}
+  else if(m==='wince'){squint(-ex,1);dot(ex);g.beginPath();g.arc(0,my,hr*0.09,0,7);g.stroke();}
+  else if(m==='worry'){dot(-ex);dot(ex);g.beginPath();g.moveTo(-ex-es,ey-es*1.9);g.lineTo(-ex+es,ey-es*1.4);g.moveTo(ex+es,ey-es*1.9);g.lineTo(ex-es,ey-es*1.4);g.stroke();
+    g.beginPath();g.arc(0,my+hr*0.22,hr*0.24,Math.PI*1.2,Math.PI*1.8);g.stroke();}
+  else{dot(-ex);dot(ex);g.beginPath();g.arc(0,my-hr*0.16,hr*0.26,Math.PI*0.2,Math.PI*0.8);g.stroke();}
+  if(neko){g.fillStyle='#f6a6b8';g.beginPath();g.moveTo(-es*0.5,ey+es*1.3);g.lineTo(es*0.5,ey+es*1.3);g.lineTo(0,ey+es*1.9);g.closePath();g.fill();
+    g.strokeStyle=C.out;g.lineWidth=lw*0.6;for(const sx of [-1,1])for(const dy of [-0.1,0.14]){g.beginPath();g.moveTo(sx*hr*0.5,hy+hr*(0.3+dy));g.lineTo(sx*hr*1.15,hy+hr*(0.3+dy*2.4));g.stroke();}}
+  if(m==='worry'||m==='hurt'||m==='panic'||m==='scream'){g.fillStyle='#6cc3ee';const n=m==='worry'?1:2;for(let k=0;k<n;k++){const sx=k?-1:1,ty=((perfNow/500+k*0.5)%1);g.beginPath();
+    if(m==='worry')g.ellipse(hr*0.8,hy-hr*0.55,hr*0.09,hr*0.15,0,0,7);else g.ellipse(sx*ex,ey+es*1.4+ty*hr*0.6,hr*0.08,hr*0.14,0,0,7);g.fill();}}
+}
+function drawFace(){
+  if(hideFace||state==='title'||state==='over')return;
+  const r=Math.max(26,Math.min(42,W*0.1)),cx=W-r-12,cy=r+14,neko=skin.hand==='neko';
+  const base=feverT>0?'fever':pain>=85?'panic':pain>=55?'hurt':pain>=25?'worry':'calm',m=face.t>0?face.mood:base;
+  const j=face.jolt>0?face.jolt*4:0;
+  ctx.save();ctx.translate(cx+rnd(-j,j),cy+rnd(-j,j)+(m==='panic'?Math.sin(perfNow/40)*1.5:0));paintFace(ctx,r,m,neko,pain,feverT>0);
+  ctx.restore();
+  if(face.sayT>0&&face.say){ctx.save();ctx.globalAlpha=Math.min(1,face.sayT*4);ctx.font=dfont(Math.max(13,Math.min(17,W*0.042)));ctx.textAlign='center';ctx.textBaseline='middle';
+    const tw=ctx.measureText(face.say).width,bw=tw+20,bh=30,bx=Math.min(W-8-bw,cx-bw/2),by=cy+r+12;
+    ctx.fillStyle='#fff';ctx.strokeStyle=C.ink;ctx.lineWidth=2.5;ctx.beginPath();ctx.roundRect(bx,by,bw,bh,12);ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx-7,by+1.5);ctx.lineTo(cx,by-8);ctx.lineTo(cx+7,by+1.5);ctx.fillStyle='#fff';ctx.fill();ctx.beginPath();ctx.moveTo(cx-7,by);ctx.lineTo(cx,by-8);ctx.lineTo(cx+7,by);ctx.stroke();
+    ctx.fillStyle=C.pain;ctx.fillText(face.say,bx+bw/2,by+bh/2+1);ctx.restore();}
+}
 function resize(){
   const r=cv.getBoundingClientRect(),d=Math.min(2,window.devicePixelRatio||1);
   W=r.width;H=r.height;cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);layout();
+  if(state==='over'&&!$('ovEnd').hidden)drawEndFace();
 }
 function layout(){
   const ovT=document.getElementById('ovTitle'),ovS=document.getElementById('ovSet'),ovH=document.getElementById('ovHow');
-  const menuish=(ovT&&!ovT.hidden)||(ovS&&!ovS.hidden)||(ovH&&!ovH.hidden);
+  const ovK=document.getElementById('ovSkin');const menuish=(ovT&&!ovT.hidden)||(ovS&&!ovS.hidden)||(ovH&&!ovH.hidden)||(ovK&&!ovK.hidden);
   let pt0;
   if(!menuish){u=Math.min(W*0.94/94,H*0.96/122);pt0=(H-122*u)/2+62*u;}
   else{u=Math.min(W*0.98/90,H/100);pt0=H-30*u;}
   if(ovT&&!ovT.hidden){const st=cv.getBoundingClientRect(),tt=ovT.querySelector('.homeTop').getBoundingClientRect(),dk=ovT.querySelector('.homeDock').getBoundingClientRect();
     const top=tt.bottom-st.top+6,bot=dk.top-st.top-4;if(bot-top>40){u=Math.min(u,(bot-top)/66);pt0=bot-6*u;}}
+  if(ovK&&!ovK.hidden){const st=cv.getBoundingClientRect(),dk=ovK.querySelector('.homeDock').getBoundingClientRect();const bot=dk.top-st.top-4;if(bot>60){u=Math.min(u,(bot-10)/66);pt0=bot-6*u;}}
   const cx=W/2+5*u,pt=pt0;
   const ws=[19,20,19,16],ls=[50,57,52,40],off=[0,-2,1,6];
   let x=cx-41*u;fingers=[];
@@ -291,7 +510,7 @@ function root(o){const f=fingers[o.f];return [f.x+o.fx*f.w,f.by-o.fy*f.L];}
 function hairGeom(h){const [rx,ry]=root(h);const g=1-Math.pow(1-h.grow,3);const l=h.len*u*g;return {rx,ry,tx:rx+Math.cos(h.ang)*l,ty:ry+Math.sin(h.ang)*l,l};}
 function reqDist(h){return (h.kind==='thick'?15:10)*u+12;}
 
-function reset(){feverT=0;iceT=0;tweezT=0;hairs=[];parts=[];pops=[];scars=[];for(let i=0;i<28;i++)hairs.push(newHair(true));score=0;pain=0;time=45;combo=0;maxCombo=0;plucked=0;perfect=0;spawnT=0;grab=null;heat=[0,0,0,0];broken=0;revived=false;items=[];creams=[];itemT=rnd(5,8);iceT=0;tweezT=0;feverT=0;}
+function reset(){feverT=0;feverCnt=0;nonSnap=0;elapsed=0;iceBoostT=0;face={mood:'calm',t:0,say:'',sayT:0,jolt:0,warned:false};iceT=0;tweezT=0;hairs=[];parts=[];pops=[];scars=[];for(let i=0;i<28;i++)hairs.push(newHair(true));score=0;pain=0;time=45;combo=0;maxCombo=0;plucked=0;perfect=0;spawnT=0;grab=null;heat=[0,0,0,0];broken=0;revived=false;items=[];creams=[];itemT=rnd(5,8);iceT=0;tweezT=0;feverT=0;}
 reset();
 
 /* ---------- audio ---------- */
@@ -305,6 +524,8 @@ function beep(freq,dur,type,vol){
 /* ---------- drawing ---------- */
 function drawBg(){
   ctx.fillStyle=C.tile;ctx.fillRect(0,0,W,H);
+  if(C.bgp==='wood'){const s=Math.max(44,H/9);ctx.strokeStyle=C.grout;ctx.lineWidth=2;ctx.beginPath();for(let y=s,i=0;y<H+s;y+=s,i++){ctx.moveTo(0,y);ctx.lineTo(W,y);const x=((i*137)%7+1)/8*W;ctx.moveTo(x,y-s);ctx.lineTo(x,y);}ctx.stroke();return;}
+  if(C.bgp==='space'){for(let i=0;i<80;i++){const x=((i*0.618034)%1)*W,y=((i*0.754877)%1)*H;ctx.fillStyle=`rgba(255,255,255,${0.35+0.5*Math.abs(Math.sin(perfNow/700+i))})`;ctx.beginPath();ctx.arc(x,y,0.7+(i%3)*0.6,0,7);ctx.fill();}return;}
   const s=Math.max(36,W/9);ctx.strokeStyle=C.grout;ctx.lineWidth=2;ctx.beginPath();
   for(let x=s;x<W;x+=s){ctx.moveTo(x,0);ctx.lineTo(x,H);}for(let y=s;y<H;y+=s){ctx.moveTo(0,y);ctx.lineTo(W,y);}ctx.stroke();
 }
@@ -328,11 +549,11 @@ function drawHand(){
   ctx.fillStyle=C.skin;handShapes(1);
   for(let i=0;i<4;i++)if(heat[i]>2){const f=fingers[i];ctx.fillStyle=`rgba(224,65,47,${Math.min(0.35,(heat[i]-2)*0.15)})`;ctx.beginPath();ctx.roundRect(f.x-f.w/2,f.by-f.L,f.w,f.L+4*u,[f.w/2,f.w/2,0,0]);ctx.fill();}
   // tendons
-  ctx.strokeStyle='rgba(197,141,105,.25)';ctx.lineWidth=1.6*u;
+  ctx.strokeStyle=C.ten;ctx.lineWidth=1.6*u;
   for(const f of fingers){ctx.beginPath();ctx.moveTo(f.x,f.by+8*u);ctx.quadraticCurveTo(f.x+2*u,f.by+30*u,palm.x+palm.w*0.45,H+20);ctx.stroke();}
   // third-joint knuckle bumps
   for(const f of fingers){
-    ctx.fillStyle='rgba(255,236,218,.55)';ctx.beginPath();ctx.ellipse(f.x,f.by+3*u,f.w*0.36,3.4*u,0,0,7);ctx.fill();
+    ctx.fillStyle=C.hi;ctx.beginPath();ctx.ellipse(f.x,f.by+3*u,f.w*0.36,3.4*u,0,0,7);ctx.fill();
     ctx.strokeStyle=C.crease;ctx.lineWidth=0.7*u;crease(f.x,f.by+1*u,f.w*0.35,-1.6*u);
   }
   // PIP & DIP creases, nails
@@ -352,6 +573,27 @@ function hairStyle(kind){
   ctx.strokeStyle=kind==='gold'?C.gold:kind==='thick'?C.thick:C.hair;
   ctx.lineWidth=Math.max(kind==='thick'?2:1.1,(kind==='thick'?0.85:kind==='gold'?0.65:0.45)*u);
 }
+let hintOn=false,hintH=null;try{hintOn=!localStorage.getItem('yubige-hint')}catch(e){hintOn=true;}
+function drawHint(){
+  if(!hintOn||state!=='play')return;
+  if(!hintH||!hairs.includes(hintH)||hintH.stub||hintH.creamed){let bd=1e9;hintH=null;
+    for(const h of hairs){if(h.stub||h.creamed||h.grow<1||h.kind==='thick')continue;const [rx,ry]=root(h);const d=Math.hypot(rx-W/2,ry-H*0.55);if(d<bd){bd=d;hintH=h;}}}
+  if(!hintH||(grab&&grab.h===hintH))return;
+  const g=hairGeom(hintH),ph=(perfNow/1000%1.3)/1.3,ca=Math.cos(hintH.ang),sa=Math.sin(hintH.ang);
+  const px=g.rx+ca*g.l*0.55,py=g.ry+sa*g.l*0.55;
+  ctx.save();
+  ctx.strokeStyle=C.pain;ctx.lineWidth=3;ctx.globalAlpha=1-ph;ctx.beginPath();ctx.arc(px,py,12+ph*24,0,7);ctx.stroke();
+  ctx.globalAlpha=0.9;ctx.fillStyle='rgba(224,65,47,.3)';ctx.beginPath();ctx.arc(px,py,12,0,7);ctx.fill();
+  const a0=g.l+14,a1=a0+40+ph*14,ex=g.rx+ca*a1,ey=g.ry+sa*a1;
+  ctx.globalAlpha=1;ctx.lineWidth=5;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(g.rx+ca*a0,g.ry+sa*a0);ctx.lineTo(ex,ey);ctx.stroke();
+  const hx=Math.cos(hintH.ang+2.5)*14,hy=Math.sin(hintH.ang+2.5)*14,kx=Math.cos(hintH.ang-2.5)*14,ky=Math.sin(hintH.ang-2.5)*14;
+  ctx.beginPath();ctx.moveTo(ex+hx,ey+hy);ctx.lineTo(ex,ey);ctx.lineTo(ex+kx,ey+ky);ctx.stroke();
+  ctx.font=dfont(20);ctx.textAlign='center';ctx.textBaseline='middle';
+  const tw=ctx.measureText(L.hint).width,tx=Math.max(tw/2+12,Math.min(W-tw/2-12,px)),ty=Math.max(70,Math.min(py,ey)-46);
+  ctx.lineWidth=6;ctx.strokeStyle='#fff';ctx.strokeText(L.hint,tx,ty);ctx.fillStyle=C.pain;ctx.fillText(L.hint,tx,ty);
+  ctx.restore();
+}
 function drawHairs(){
   for(const s of scars){const [x,y]=root(s);ctx.fillStyle=`rgba(224,65,47,${0.7*s.life})`;ctx.beginPath();ctx.arc(x,y,Math.max(1.5,0.55*u),0,7);ctx.fill();}
   for(const c of creams){const f=fingers[c.f],a=Math.min(1,c.t*2,(1.6-c.t)*6)*0.9;ctx.fillStyle=`rgba(255,250,252,${a})`;
@@ -359,7 +601,7 @@ function drawHairs(){
     for(let k=0;k<5;k++){ctx.beginPath();ctx.arc(f.x+Math.sin(k*2.1)*f.w*0.3,f.by-f.L*(0.1+k*0.14),f.w*0.22,0,7);ctx.fill();}}
   for(const h of hairs){
     if(grab&&grab.h===h)continue;
-    const g=hairGeom(h);hairStyle(h.kind);ctx.globalAlpha=h.creamed?Math.max(0,h.fade):1;
+    const g=hairGeom(h);hairStyle(h.kind);if(C.rainbow&&h.kind!=='gold')ctx.strokeStyle=`hsl(${Math.round((h.fx*500+h.fy*400+720)%360)},75%,${h.kind==='thick'?38:48}%)`;ctx.globalAlpha=h.creamed?Math.max(0,h.fade):1;
     if(h.kind==='gold'){ctx.shadowColor='#ffd75a';ctx.shadowBlur=8+4*Math.sin(perfNow/150);}
     const mx=(g.rx+g.tx)/2,my=(g.ry+g.ty)/2,nx=-(g.ty-g.ry),ny=g.tx-g.rx;
     ctx.beginPath();ctx.moveTo(g.rx,g.ry);ctx.quadraticCurveTo(mx+nx*h.curl,my+ny*h.curl,g.tx,g.ty);ctx.stroke();
@@ -371,7 +613,7 @@ function drawHairs(){
   if(grab){
     const h=grab.h,[rx,ry]=root(h);const d=Math.hypot(grab.px-rx,grab.py-ry);const st=Math.min(1,d/reqDist(h));
     // skin tent
-    ctx.fillStyle=`rgba(227,173,134,${0.5+st*0.4})`;ctx.beginPath();
+    ctx.fillStyle=C.skinD;ctx.beginPath();
     const ang=Math.atan2(grab.py-ry,grab.px-rx);
     ctx.ellipse(rx+Math.cos(ang)*st*2*u,ry+Math.sin(ang)*st*2*u,(1.2+st*1.6)*u,(0.9+st*1.2)*u,ang,0,7);ctx.fill();
     ctx.strokeStyle=`rgba(224,65,47,${st*0.5})`;ctx.lineWidth=0.5*u;ctx.stroke();
@@ -410,18 +652,19 @@ let perfNow=0;
 function draw(){
   ctx.save();
   if(shake>0)ctx.translate(rnd(-shake,shake),rnd(-shake,shake));
-  drawBg();drawHand();drawSting();drawHairs();drawParts();drawItems();
+  if(noBg)ctx.clearRect(0,0,W,H);else drawBg();drawHand();drawSting();drawHairs();drawParts();drawItems();drawHint();
   ctx.restore();
-  if(feverT>0){ctx.fillStyle=`rgba(255,205,70,${0.12+0.08*Math.sin(perfNow/120)})`;ctx.fillRect(0,0,W,H);}
-  if(iceT>0){ctx.fillStyle=`rgba(120,190,235,${Math.min(0.22,iceT*0.08)})`;ctx.fillRect(0,0,W,H);}
-  if(pain>40){const g=ctx.createRadialGradient(W/2,H/2,Math.min(W,H)*0.3,W/2,H/2,Math.max(W,H)*0.75);
+  if(feverT>0&&!noBg){ctx.fillStyle=`rgba(255,205,70,${0.12+0.08*Math.sin(perfNow/120)})`;ctx.fillRect(0,0,W,H);}
+  if(iceT>0&&!noBg){ctx.fillStyle=`rgba(120,190,235,${Math.min(0.22,iceT*0.08)})`;ctx.fillRect(0,0,W,H);}
+  if(pain>40&&!noBg){const g=ctx.createRadialGradient(W/2,H/2,Math.min(W,H)*0.3,W/2,H/2,Math.max(W,H)*0.75);
     g.addColorStop(0,'rgba(224,65,47,0)');g.addColorStop(1,`rgba(224,65,47,${(pain-40)/60*0.45})`);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
+  drawFace();
   drawPops();
 }
 
 /* ---------- game logic ---------- */
 function popup(text,x,y,col,size){pops.push({text,x,y,col,size:size||22,life:1});}
-function addPain(v){v*=painMul;if(iceT>0)v*=0.5;if(feverT>0)v*=0.5;pain=Math.min(100,pain+v);shake=Math.max(shake,v*0.6);if(pain>=100&&state==='play')end(L.painOut);}
+function addPain(v){v*=painMul;if(iceT>0)v*=0.5;if(feverT>0)v=0;pain=Math.min(100,pain+v);shake=Math.max(shake,v*0.6);if(pain>=100&&state==='play')queueMicrotask(()=>{if(state==='play'&&pain>=100)end(L.painOut);});}
 function pluck(h,ms){
   if(tweezT>0)ms=0;
   const [rx,ry]=root(h);
@@ -435,14 +678,16 @@ function pluck(h,ms){
   hairs.splice(hairs.indexOf(h),1);
   let label,col,mult;
   if(ms<220){label=L.snap;col=C.ink;mult=0.4;combo++;perfect++;beep(900,0.09,'square',0.07);}
-  else if(ms<550){label=L.ok;col=C.muted||'#5c6f73';mult=1;combo++;beep(600,0.1,'square',0.06);}
-  else{label=L.ouch;col=C.pain;mult=1.9;combo=0;beep(180,0.25,'sawtooth',0.08);}
-  maxCombo=Math.max(maxCombo,combo);plucked++;
+  else if(ms<550){nonSnap++;label=L.ok;col=C.muted||'#5c6f73';mult=1;combo++;beep(600,0.1,'square',0.06);}
+  else{nonSnap++;label=L.ouch;col=C.pain;mult=1.9;combo=0;beep(180,0.25,'sawtooth',0.08);}
+  maxCombo=Math.max(maxCombo,combo);plucked++;if(hintOn){hintOn=false;try{localStorage.setItem('yubige-hint','1')}catch(e){}}
+  if(h.kind==='thick'||h.orig==='thick'){haptic('HEAVY');setTimeout(()=>haptic('LIGHT'),70);}
   if(combo>0&&combo%25===0&&feverT<=0)startFever();
   const hot=heat[h.f]>=2.5,hm=1+Math.max(0,heat[h.f]-2)*0.35;heat[h.f]+=1;
   const pv=base*mult*dirM*hm;addPain(pv);
   const plus=Math.round(pts*(1+Math.min(combo,20)*0.1)),minus=Math.round(pv*2.5),gain=plus-minus;score+=gain;
   popup(label,rx,ry-30,col,label===L.snap?26:22);
+  if(feverT<=0){if(mult>1.5)react('ouch',dirM>1?L.say.against:L.say.ouch);else if(hot&&Math.random()<0.4)react('ouch',L.say.sting);else{face.jolt=Math.max(face.jolt,0.3);if(face.t<=0){face.mood='wince';face.t=0.22;}}}
   if(dirT)popup(dirT,rx,ry-54,dirM<1?'#2f8a5a':C.pain,16);
   popup((gain>=0?'+':'')+gain,rx,ry-6,gain<0?C.pain:h.kind==='gold'?C.gold:C.ink,gain<0?19:16);
   if(h.kind==='gold'&&feverT<=0)popup(L.gold,W/2,H*0.18,C.gold,30);
@@ -451,15 +696,16 @@ function pluck(h,ms){
   scars.push({f:h.f,fx:h.fx,fy:h.fy,life:1});
 }
 function breakHair(h,rx,ry,dx,dy,dl){
+  haptic('MEDIUM');
   const old=h.len;h.len=Math.max(1.8,old*0.28);h.stub=true;h.grow=1;
-  combo=0;addPain(3);score-=5;broken++;
+  combo=0;addPain(3);score-=5;broken++;if(feverT<=0)react('ouch',L.say.brk);
   pops=pops.filter(p=>Math.hypot(p.x-rx,p.y-ry)>70);popup(L.broke+' -5',rx,ry-34,C.pain,27);h.flash=1.4;shake=Math.max(shake,5);
   parts.push({x:grab.px,y:grab.py,vx:dx/dl*4,vy:dy/dl*4-2,rot:Math.atan2(ry-grab.py,rx-grab.px),vr:rnd(-0.3,0.3),len:(old-h.len)*u,kind:h.kind,bulb:false,life:1.4});
   beep(260,0.12,'square',0.07);
 }
 function startFever(){
-  feverT=6;for(const h of hairs)h.kind='gold';
-  popup(L.fever,W/2,H*0.3,C.gold,40);shake=Math.max(shake,6);
+  feverCnt++;feverT=6;time+=5;itemT=Math.min(itemT,0.8);for(const h of hairs)h.kind='gold';
+  popup(L.fever,W/2,H*0.3,C.gold,40);popup(L.plus5,W/2,H*0.3+46,'#2f8a5a',28);react('fever',L.say.fever);shake=Math.max(shake,6);
   [880,1100,1320,1760].forEach((f,i)=>setTimeout(()=>beep(f,0.12,'square',0.06),i*80));
 }
 function drawSting(){
@@ -471,16 +717,18 @@ function drawSting(){
     ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.85)';ctx.strokeText(L.sting,f.x,y);ctx.fillStyle=C.pain;ctx.fillText(L.sting,f.x,y);}
   ctx.globalAlpha=1;
 }
-function spawnItem(){
-  const kinds=['cream','ice','tweez','tonic'],k=kinds[Math.floor(Math.random()*4)];
+function spawnItem(force){
+  const r0=Math.random(),k=force||(feverT>0?(r0<0.45?'tonic':r0<0.9?'tweez':'cream'):iceBoostT>0?(r0<0.65?'ice':r0<0.8?'cream':r0<0.9?'tweez':'tonic'):(r0<0.1?'ice':r0<0.4?'cream':r0<0.7?'tweez':'tonic'));
   const top=Math.min(...fingers.map(f=>f.by-f.L));
   const side=Math.random()<0.5;let x,y;
-  if(top>110){x=rnd(40,W-40);y=rnd(50,top-30);}
+  if(top>110){x=rnd(40,Math.max(60,W-120));y=rnd(50,top-30);}
   else{x=side?rnd(30,Math.max(31,fingers[0].x-fingers[0].w)):rnd(Math.min(W-31,fingers[3].x+fingers[3].w),W-30);y=rnd(60,H*0.6);}
   items.push({k,x,y,life:5,ph:Math.random()*6});beep(1400,0.08,'sine',0.04);
 }
+function haptic(style){try{const C=window.Capacitor;if(!C||!C.isNativePlatform||!C.isNativePlatform())return;const P=C.Plugins&&C.Plugins.Haptics;
+  if(P&&typeof P.impact==='function')P.impact({style}).catch(()=>{});else if(C.nativePromise)C.nativePromise('Haptics','impact',{style}).catch(()=>{});}catch(e){}}
 function useItem(it){
-  items.splice(items.indexOf(it),1);beep(700,0.06,'triangle',0.07);setTimeout(()=>beep(1050,0.1,'triangle',0.07),70);
+  {const i=items.indexOf(it);if(i>=0)items.splice(i,1);}beep(700,0.06,'triangle',0.07);setTimeout(()=>beep(1050,0.1,'triangle',0.07),70);
   popup(L[it.k],it.x,it.y-20,'#2b6f9a',18);
   if(it.k==='ice'){pain=Math.max(0,pain-40);iceT=6;}
   else if(it.k==='tonic'){let f=0;for(let i=1;i<4;i++){const ci=hairs.filter(h=>h.f===i).length,cf=hairs.filter(h=>h.f===f).length;if(heat[i]<heat[f]-0.3||(Math.abs(heat[i]-heat[f])<=0.3&&ci<cf))f=i;}for(let n=0;n<7;n++){const h=newHair(false);h.f=f;h.tonic=true;hairs.push(h);}const fg=fingers[f];popup(L.sprout,fg.x,fg.by-fg.L*0.85,'#2f8a5a',20);}
@@ -517,6 +765,7 @@ function drawItems(){
 function update(dt){
   perfNow+=dt*1000;
   shake=Math.max(0,shake-dt*40);
+  face.t=Math.max(0,face.t-dt);face.sayT=Math.max(0,face.sayT-dt);face.jolt=Math.max(0,face.jolt-dt*3);
   for(const h of hairs)if(h.flash>0)h.flash-=dt;
   for(const h of hairs)if(h.grow<1)h.grow=Math.min(1,h.grow+dt*3.5);
   for(const p of parts){p.vy+=dt*30;p.x+=p.vx*dt*60;p.y+=p.vy*dt*60;p.rot+=p.vr;p.life-=dt;}
@@ -524,17 +773,18 @@ function update(dt){
   for(const p of pops){p.y-=dt*28;p.life-=dt*0.9;}pops=pops.filter(p=>p.life>0);
   for(const s of scars)s.life-=dt*0.35;scars=scars.filter(s=>s.life>0);
   for(let i=0;i<4;i++)heat[i]=Math.max(0,heat[i]-dt*0.8);
-  if(state==='ready'){const was=readyT;readyT-=dt;if(was>0.6&&readyT<=0.6)beep(1320,0.25,'square',0.08);if(readyT<=0)state='play';return;}
+  if(state==='ready'){const was=readyT;readyT-=dt;if(was>0.6&&readyT<=0.6)beep(1320,0.25,'square',0.08);if(readyT<=0){state='play';renderTray();react('worry',L.say.start);}return;}
   if(state!=='play')return;
-  time=Math.max(0,time-dt);
+  time=Math.max(0,time-dt);elapsed+=dt;iceBoostT=Math.max(0,iceBoostT-dt);
+  if(pain>=85&&!face.warned){face.warned=true;react('scream',L.say.limit);}else if(pain<70)face.warned=false;
   if(grab){
     const held=(performance.now()-grab.t0)/1000;
-    if(held>0.6){pain=Math.min(100,pain+dt*22*painMul*(feverT>0?0.5:1));score-=dt*20;shake=Math.max(shake,1.5);}
-  }else pain=Math.max(0,pain-dt*8);
+    if(held>0.6){pain=Math.min(100,pain+dt*22*painMul*(feverT>0?0:1));score-=dt*20;shake=Math.max(shake,1.5);if(face.t<=0&&feverT<=0)react('scream',L.say.held);}
+  }else if(feverT<=0)pain=Math.max(0,pain-dt*8);
   itemT-=dt;
-  if(itemT<=0&&!items.length){spawnItem();itemT=rnd(8,12);}
+  if(itemT<=0&&!items.length){spawnItem();itemT=feverT>0?rnd(2.5,4):rnd(8,12);}
   for(const it of items)it.life-=dt;items=items.filter(it=>it.life>0);
-  if(feverT>0){feverT-=dt;if(feverT<=0){feverT=0;for(const h of hairs)h.kind=h.orig||h.kind;}}
+  if(feverT>0){feverT-=dt;if(feverT<=0){feverT=0;iceBoostT=8;itemT=Math.min(itemT,1);for(const h of hairs)h.kind=h.orig||h.kind;}}
   iceT=Math.max(0,iceT-dt);tweezT=Math.max(0,tweezT-dt);
   for(const h of hairs)if(h.creamed)h.fade-=dt/1.6;
   for(const c of creams){c.t-=dt;if(c.t<=0)finishCream(c);}creams=creams.filter(c=>c.t>0);
@@ -547,29 +797,37 @@ function update(dt){
 }
 function end(reason){
   if(reason===L.timeUp&&!revived&&adsReady&&rReady){offerRevive();return;}
-  state='over';grab=null;score=Math.round(score);beep(220,0.4,'triangle',0.08);
+  state='over';grab=null;score=Math.round(score);const prevBest=best;beep(220,0.4,'triangle',0.08);
   if(score>best){best=score;try{localStorage.setItem('yubige-best',best)}catch(e){}}
-  const ranks=[0,3000,5000,7500,10000,13000,16000,20000,25000,32000,40000,1e9].map((v,i)=>[v,L.ranks[i]]);
+  const ranks=[0,3000,5000,8000,11000,15000,19000,24000,30000,38000,48000,1e9].map((v,i)=>[v,L.ranks[i]]);
   const ri=ranks.findIndex(r=>score<r[0]);$('nextR').textContent=ri<ranks.length-1?L.next(ranks[ri][0]-score,ranks[ri+1][1]):'';
   $('reason').textContent=reason;$('fScore').textContent=score;$('rank').textContent=ranks.find(r=>score<r[0])[1];
-  const si=SPECIAL.findIndex(f=>f(reason));$('rank').classList.toggle('special',si>=0);
+  let si=SPECIAL.findIndex(f=>f(reason));
+  {const hidS=[[3,score===7777],[6,perfect>=60&&nonSnap===0&&broken===0],[5,plucked===0&&reason===L.timeUp],[7,feverCnt>=4],[4,score<0]];
+   for(const [i,okk] of hidS)if(okk&&!spGot.includes(i)){spGot.push(i);try{localStorage.setItem('yubige-sp',JSON.stringify(spGot))}catch(e){}}
+   const hs=hidS.find(x=>x[1]);if(hs)si=hs[0];}$('rank').classList.toggle('special',si>=0);
   if(si>=0){$('rank').textContent=L.sp[si][0];$('nextR').textContent=L.spGet;if(!spGot.includes(si)){spGot.push(si);try{localStorage.setItem('yubige-sp',JSON.stringify(spGot))}catch(e){}}}
   $('rBk').textContent=L.times(broken);
+  lastRes={score,newBest:score>prevBest&&score>0,rank:$('rank').textContent,special:si>=0,si,po:reason===L.painOut,plucked,combo:maxCombo,snaps:perfect,broken};
   const up=commitPlucks();renderLevel('e');$('eGain').textContent=L.gained(plucked)+(up>0?'   '+L.lvUp(lvInfo(total).lv):'');$('eGain').classList.toggle('up',up>0);
+  if(lastGot.length){$('eGain').textContent+='   '+L.lvItem(lastGot.map(k=>L[k]).join('・'));}renderStock();
+  $('dblBtn').disabled=false;$('dblBtn').textContent=L.itemAd;$('dblBtn').hidden=!(adsReady&&rReady&&stock.length<3);
   $('rN').textContent=L.hairs(plucked);$('rP').textContent=L.times(perfect);$('rC').textContent=maxCombo;$('rB').textContent=best;
   $('pb').style.width=pain+'%';$('sc').textContent=score;$('tm').textContent=time.toFixed(1);
-  $('pauseBtn').hidden=true;renderRanks();
+  $('pauseBtn').hidden=true;renderRanks();renderTray();
+  gcReport(score,si);
+  {const fr=skFresh();if(fr.length){$('eGain').textContent+='   '+(fr.includes('neko')?L.skNeko:fr.some(i=>['zombie','ghost','gold','robot','k5'].includes(i))?L.skGotS:L.skNew);$('eGain').classList.add('up');$('skDot').hidden=false;skSeen=skUnlocked();try{localStorage.setItem('yubige-skseen',JSON.stringify(skSeen));localStorage.setItem('yubige-skdot','1')}catch(e){}}}
   gamesSinceAd++;
   if(adsReady&&iReady&&!revived&&gamesSinceAd>=ADS.every){gamesSinceAd=0;iReady=false;setTimeout(()=>{adCall('showInterstitial').catch(()=>{}).finally(prepI);},400);}
-  setTimeout(()=>{if(state==='over')show('ovEnd');},500);
+  setTimeout(()=>{if(state==='over'){show('ovEnd');drawEndFace();}},500);
 }
 function start(){
   if(!actx){try{actx=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}
   if(state==='pause')commitPlucks();
   reset();state='ready';readyT=1.7;committed=false;show(null);$('pauseBtn').hidden=false;beep(660,0.15,'square',0.06);
 }
-const OVS=['ovTitle','ovHow','ovSet','ovPause','ovEnd','ovRevive'];
-function show(id){for(const o of OVS)$(o).hidden=o!==id;layout();}
+const OVS=['ovTitle','ovHow','ovSet','ovPause','ovEnd','ovRevive','ovSkin','ovImg'];
+function show(id){for(const o of OVS)$(o).hidden=o!==id;layout();renderTray();}
 function pause(){if(state!=='play')return;state='pause';grab=null;show('ovPause');}
 function resume(){if(state!=='pause')return;state='play';show(null);}
 function toMenu(){if(state==='pause')commitPlucks();state='title';reset();$('pauseBtn').hidden=true;$('sc').textContent=0;$('tm').textContent=time.toFixed(1);$('pb').style.width='0%';applyLang();show('ovTitle');}
@@ -591,7 +849,7 @@ cv.addEventListener('pointermove',e=>{
 });
 function release(){
   if(!grab)return;const [rx,ry]=root(grab.h);
-  if(Math.hypot(grab.px-rx,grab.py-ry)>reqDist(grab.h)*0.45){addPain(4);combo=0;score-=10;popup(L.stuck+' -10',rx,ry-24,C.pain,20);beep(150,0.15,'sawtooth',0.06);}
+  if(Math.hypot(grab.px-rx,grab.py-ry)>reqDist(grab.h)*0.45){addPain(4);combo=0;score-=10;popup(L.stuck+' -10',rx,ry-24,C.pain,20);if(feverT<=0)react('ouch',L.say.ouch);beep(150,0.15,'sawtooth',0.06);}
   grab=null;
 }
 cv.addEventListener('pointerup',release);cv.addEventListener('pointercancel',release);
@@ -620,6 +878,11 @@ $('revWatch').onclick=()=>{
   adCall('showRewardVideoAd').then(()=>{$('revWatch').hidden=true;$('revResume').hidden=false;$('revMsg').textContent='';})
     .catch(()=>{$('revMsg').textContent=L.revFail;$('revWatch').hidden=true;}).finally(prepR);
 };
+$('dblBtn').onclick=()=>{
+  const b=$('dblBtn');b.disabled=true;b.textContent=L.revLoading;rReady=false;
+  adCall('showRewardVideoAd').then(()=>{const k=ITEM_KINDS[Math.floor(Math.random()*4)];stock.push(k);saveStock();renderStock();b.textContent=L.itemGot(L[k]);})
+    .catch(()=>{b.textContent=L.revFail;}).finally(prepR);
+};
 $('revResume').onclick=()=>{revived=true;time=10;grab=null;state='play';show(null);$('pauseBtn').hidden=false;};
 $('revNo').onclick=()=>{revived=true;state='play';end(L.timeUp);};
 const TUT_ART=['<svg viewBox="0 0 200 150" role="img" aria-hidden="true"><rect x="72" y="14" width="56" height="150" rx="28" fill="#f1c7a2" stroke="#b97a57" stroke-width="4"/><rect x="84" y="24" width="32" height="28" rx="13" fill="#f7ddd0" stroke="#e8bba8" stroke-width="2"/><path d="M86 74q14 5 28 0M88 80q12 4 24 0" fill="none" stroke="#c58d69" stroke-width="2.5" stroke-linecap="round"/><path d="M96 120q4-10 2-20" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><path d="M108 132q5-9 3-18" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><path d="M100 104q18-26 46-52" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="104" r="3" fill="#e0412f"/><path d="M150 46l-20 2m20-2l-4 19" fill="none" stroke="#1f2b33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="146" cy="52" r="11" fill="rgba(31,43,51,.15)" stroke="#1f2b33" stroke-width="2.5"/></svg>','<svg viewBox="0 0 200 150" role="img" aria-hidden="true"><rect x="72" y="14" width="56" height="150" rx="28" fill="#f1c7a2" stroke="#b97a57" stroke-width="4"/><rect x="84" y="24" width="32" height="28" rx="13" fill="#f7ddd0" stroke="#e8bba8" stroke-width="2"/><path d="M86 74q14 5 28 0M88 80q12 4 24 0" fill="none" stroke="#c58d69" stroke-width="2.5" stroke-linecap="round"/><path d="M98 122q4-10 2-20" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="104" r="3" fill="#e0412f"/><g transform="rotate(-38 150 52)"><path d="M136 52h26" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><ellipse cx="134" cy="52" rx="4" ry="3" fill="#fff7ee" stroke="#2a1c13" stroke-width="1.5"/></g><path d="M168 24l-6 12M182 40l-12 4M176 60l-10-4M150 20l0 12" stroke="#d6a01e" stroke-width="3.5" stroke-linecap="round"/></svg>','<svg viewBox="0 0 200 150" role="img" aria-hidden="true"><rect x="72" y="14" width="56" height="150" rx="28" fill="#f1c7a2" stroke="#b97a57" stroke-width="4"/><rect x="84" y="24" width="32" height="28" rx="13" fill="#f7ddd0" stroke="#e8bba8" stroke-width="2"/><path d="M86 74q14 5 28 0M88 80q12 4 24 0" fill="none" stroke="#c58d69" stroke-width="2.5" stroke-linecap="round"/><path d="M88 118q-2-12 2-24" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><path d="M90 94l-2-26" stroke="#2f8a5a" stroke-width="4" stroke-linecap="round"/><path d="M82 76l6-10 6 10" fill="none" stroke="#2f8a5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="70" r="14" fill="#2f8a5a"/><path d="M39 70l5 5 9-10" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M112 96q2-10 0-18" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><path d="M112 100l0 34" stroke="#e0412f" stroke-width="4" stroke-linecap="round"/><path d="M106 126l6 10 6-10" fill="none" stroke="#e0412f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M150 88l-4 12" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><path d="M148 108l-2 8" fill="none" stroke="#2a1c13" stroke-width="3" stroke-linecap="round"/><circle cx="160" cy="70" r="14" fill="#e0412f"/><path d="M154 64l12 12M166 64l-12 12" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>','<svg viewBox="0 0 200 150" role="img" aria-hidden="true"><rect x="40" y="6" width="120" height="16" rx="8" fill="#fff" stroke="#1f2b33" stroke-width="3"/><rect x="42" y="8" width="94" height="12" rx="6" fill="#e0412f"/><rect x="72" y="14" width="56" height="150" rx="28" fill="#ec9f86" stroke="#b97a57" stroke-width="4"/><rect x="84" y="24" width="32" height="28" rx="13" fill="#f7ddd0" stroke="#e8bba8" stroke-width="2"/><path d="M86 74q14 5 28 0M88 80q12 4 24 0" fill="none" stroke="#c58d69" stroke-width="2.5" stroke-linecap="round"/><path d="M48 70q6-6 12 0t12 0M48 90q6-6 12 0t12 0M128 70q6-6 12 0t12 0M128 90q6-6 12 0t12 0" fill="none" stroke="#e0412f" stroke-width="3" stroke-linecap="round"/></svg>','<svg viewBox="0 0 200 150" role="img" aria-hidden="true"><rect x="72" y="14" width="56" height="150" rx="28" fill="#f1c7a2" stroke="#b97a57" stroke-width="4"/><rect x="84" y="24" width="32" height="28" rx="13" fill="#f7ddd0" stroke="#e8bba8" stroke-width="2"/><path d="M86 74q14 5 28 0M88 80q12 4 24 0" fill="none" stroke="#c58d69" stroke-width="2.5" stroke-linecap="round"/><path d="M94 118q4-10 2-20M108 128q5-9 3-18M102 100q4-10 2-20" fill="none" stroke="#d6a01e" stroke-width="3.5" stroke-linecap="round"/><g transform="translate(36 40)"><circle r="20" fill="#fff" stroke="#1f2b33" stroke-width="3"/><g transform="rotate(-35)"><rect x="-11" y="-5" width="17" height="10" rx="2" fill="#fdf6f9" stroke="#1f2b33" stroke-width="2"/><rect x="6" y="-3.5" width="6" height="7" rx="1.5" fill="#f27ea0" stroke="#1f2b33" stroke-width="2"/></g></g><g transform="translate(164 40)"><circle r="20" fill="#fff" stroke="#1f2b33" stroke-width="3"/><rect x="-11" y="-9" width="22" height="18" rx="5" fill="#bfe6ff" stroke="#1f2b33" stroke-width="2"/></g><g transform="translate(164 108)"><circle r="20" fill="#fff" stroke="#1f2b33" stroke-width="3"/><path d="M-2-12l-3 22M2-12l3 22" stroke="#7d8b97" stroke-width="3.5" stroke-linecap="round"/></g><g transform="translate(36 108)"><circle r="20" fill="#fff" stroke="#1f2b33" stroke-width="3"/><rect x="-8" y="-5" width="16" height="16" rx="4" fill="#8fd6a0" stroke="#1f2b33" stroke-width="2"/><rect x="-4.5" y="-12" width="9" height="7" rx="2" fill="#2f8a5a" stroke="#1f2b33" stroke-width="2"/></g></svg>'];
@@ -643,9 +906,115 @@ function tunePanel(){
 tunePanel();window.addEventListener('hashchange',tunePanel);
 setTimeout(initAds,800);
 
+// ---- v1.1: Game Center ----
+const STORE_URL='https://apps.apple.com/app/id6829188451';
+const WEB_SHARE=false,WEB_URL='https://yubinuki.itch.io/finger-fuzz';
+const GC={best:'fuzz.best',total:'fuzz.total',
+  ach:{first:'fuzz.first',s5k:'fuzz.score5000',s10k:'fuzz.score10000',s20k:'fuzz.score20000',s30k:'fuzz.score30000',c50:'fuzz.combo50',c100:'fuzz.combo100',fev3:'fuzz.fever3',h1k:'fuzz.hairs1000',h10k:'fuzz.hairs10000',sp0:'fuzz.brute',sp1:'fuzz.snapper',sp2:'fuzz.quitter',sp3:'fuzz.lucky7',sp4:'fuzz.minus',sp5:'fuzz.zen',sp6:'fuzz.flawless',sp7:'fuzz.fever4',c150:'fuzz.combo150'}};
+let gcOn=false,achGot=[];try{achGot=JSON.parse(localStorage.getItem('yubige-ach')||'[]')}catch(e){}
+function gcCall(m,o){if(!isNative)return Promise.reject('web');const P=CapN.Plugins&&CapN.Plugins.CapacitorGameConnect;if(P&&typeof P[m]==='function')return P[m](o||{});if(CapN.nativePromise)return CapN.nativePromise('CapacitorGameConnect',m,o||{});return Promise.reject('none');}
+function gcSignIn(){return gcCall('signIn').then(()=>{gcOn=true;gcSync();return true;}).catch(()=>false);}
+function gcSync(){if(!gcOn)return;
+  if(total>0)earn('first');if(best>=5000)earn('s5k');if(best>=10000)earn('s10k');if(best>=20000)earn('s20k');if(best>=30000)earn('s30k');
+  if(total>=1000)earn('h1k');if(total>=10000)earn('h10k');for(const i of spGot)earn('sp'+i);
+  if(best>0)gcCall('submitScore',{leaderboardID:GC.best,totalScoreAmount:best}).catch(()=>{});
+  if(total>0)gcCall('submitScore',{leaderboardID:GC.total,totalScoreAmount:total}).catch(()=>{});
+  for(const k of achGot)if(GC.ach[k])gcCall('unlockAchievement',{achievementID:GC.ach[k]}).catch(()=>{});}
+function earn(k){if(!achGot.includes(k)){achGot.push(k);try{localStorage.setItem('yubige-ach',JSON.stringify(achGot))}catch(e){}}}
+function gcReport(sc,si){
+  earn('first');if(sc>=5000)earn('s5k');if(sc>=10000)earn('s10k');if(sc>=20000)earn('s20k');if(sc>=30000)earn('s30k');
+  if(maxCombo>=50)earn('c50');if(maxCombo>=100)earn('c100');if(maxCombo>=150)earn('c150');if(feverCnt>=3)earn('fev3');
+  if(total>=1000)earn('h1k');if(total>=10000)earn('h10k');if(si>=0)earn('sp'+si);
+  gcSync();}
+async function gcShow(m,o){if(!gcOn)await gcSignIn();if(gcOn)gcCall(m,o).catch(()=>{});}
+if(isNative){$('toLb').hidden=false;$('toAch').hidden=false;setTimeout(gcSignIn,1200);}
+$('toLb').onclick=()=>gcShow('showLeaderboard',{leaderboardID:GC.best});
+$('toAch').onclick=()=>gcShow('showAchievements');
+
+// ---- v1.1: share image ----
+let lastRes=null;
+function rr(g,x,y,w,h,r){g.beginPath();g.roundRect(x,y,w,h,r);}
+function fitText(g,t,max,size,fn){let s=size;do{g.font=fn(s);s-=2;}while(g.measureText(t).width>max&&s>12);}
+function resMood(r){const SPK=['brute','snap','quit','lucky','minus','zen','flaw','fever4'];
+  const qk=r.si>=0?SPK[r.si]:r.po?'painOut':r.score<3000?'s0':r.score<11000?'s1':r.score<24000?'s2':r.score<38000?'s3':'s4';
+  return [qk,({brute:'hurt',snap:'cry',quit:'cry',lucky:'fever',minus:'cry',zen:'calm',flaw:'fever',fever4:'fever',painOut:'cry',s0:'cry',s1:'hurt',s2:'calm',s3:'fever',s4:'fever'})[qk]];}
+function drawEndFace(){const cvf=$('endFace');if(!cvf||!lastRes)return;const rc=cvf.getBoundingClientRect();if(rc.height<40){cvf.style.visibility='hidden';return;}cvf.style.visibility='';
+  const d=Math.min(2,window.devicePixelRatio||1);cvf.width=Math.round(rc.width*d);cvf.height=Math.round(rc.height*d);const g=cvf.getContext('2d');g.setTransform(d,0,0,d,0,0);
+  const [qk,m]=resMood(lastRes),w=rc.width,h=rc.height,rad=Math.min(h*0.42,w*0.3,150),cx=w/2,cy=h-rad-14;
+  g.fillStyle=m==='fever'?'rgba(255,214,90,.5)':m==='cry'?'rgba(240,150,140,.38)':'rgba(214,235,230,.5)';
+  for(let k=0;k<20;k++){const a=k/20*Math.PI*2+perfNow/4000;g.beginPath();g.moveTo(cx,cy);g.arc(cx,cy,Math.max(w,h)*1.2,a,a+Math.PI/20);g.closePath();g.fill();}
+  g.save();g.translate(cx,cy);paintFace(g,rad,m,skin.hand==='neko',lastRes.po?100:m==='cry'?70:20,m==='fever');g.restore();
+  $('endSay').textContent=L.q[qk];}
+function shareImg(){
+  const r=lastRes,c=document.createElement('canvas');c.width=1200;c.height=675;const g=c.getContext('2d');
+  const D=dfont,BF=getComputedStyle(document.body).fontFamily||'sans-serif',B=s=>`700 ${s}px ${BF}`;
+  const [qk,mood0]=resMood(r);
+  const mood=mood0;
+  // background: game tile
+  g.fillStyle='#d6ebe6';g.fillRect(0,0,1200,675);g.strokeStyle='#c1dad3';g.lineWidth=3;g.beginPath();
+  for(let x=75;x<1200;x+=75){g.moveTo(x,0);g.lineTo(x,675);}for(let y=75;y<675;y+=75){g.moveTo(0,y);g.lineTo(1200,y);}g.stroke();
+  // left frame: the finger's owner and his actual hand from this game
+  const fx=36,fy=36,fw=560,fh=603,fcx=fx+fw/2,fcy=fy+190;
+  g.save();rr(g,fx,fy,fw,fh,28);g.clip();
+  g.fillStyle=mood==='fever'?'#fff1c2':mood==='cry'?'#fde3dc':'#eef8f5';g.fillRect(fx,fy,fw,fh);
+  g.fillStyle=mood==='fever'?'rgba(255,214,90,.45)':mood==='cry'?'rgba(240,150,140,.25)':'rgba(180,220,210,.45)';
+  for(let k=0;k<18;k++){const a=k/18*Math.PI*2;g.beginPath();g.moveTo(fcx,fcy);g.arc(fcx,fcy,900,a,a+Math.PI/18);g.closePath();g.fill();}
+  const sk=shake,pp=pops;shake=0;pops=[];hideFace=true;noBg=true;draw();noBg=false;hideFace=false;shake=sk;pops=pp;
+  const f0=fingers[0],f3=fingers[3];let tip=H;for(const f of fingers)tip=Math.min(tip,f.by-f.L);
+  const x0=f0.x-f0.w/2-6*u,x1=f3.x+f3.w/2+6*u,k=500/(x1-x0);
+  g.drawImage(cv,fx+30-x0*k,fy+340-tip*k,W*k,H*k);
+  g.save();g.translate(fcx,fcy);paintFace(g,150,mood,skin.hand==='neko',r.po?100:mood==='cry'?70:20,mood==='fever');g.restore();
+  g.restore();
+  g.lineWidth=8;g.strokeStyle=C.ink;rr(g,fx,fy,fw,fh,28);g.stroke();
+  // right column
+  const cx=905;g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';
+  const outline=(t,y,size,fill,sw,maxw)=>{fitText(g,t,maxw||520,size,D);g.lineWidth=sw;g.strokeStyle=C.ink;g.strokeText(t,cx,y);g.fillStyle=fill;g.fillText(t,cx,y);};
+  outline(L.doc,92,64,'#fff',14);
+  // score + unit
+  const sc=String(r.score);fitText(g,sc,400,150,D);const sw=g.measureText(sc).width;g.font=D(52);const uw=g.measureText(L.ptsU).width;
+  const sx=cx-(sw+uw+10)/2;g.textAlign='left';
+  fitText(g,sc,400,150,D);g.lineWidth=16;g.strokeStyle=C.ink;g.strokeText(sc,sx,220);g.fillStyle=r.score<0?'#7d8b97':C.pain;g.fillText(sc,sx,220);
+  g.font=D(52);g.lineWidth=10;g.strokeText(L.ptsU,sx+sw+10,248);g.fillStyle=C.pain;g.fillText(L.ptsU,sx+sw+10,248);g.textAlign='center';
+  if(r.newBest){g.save();g.translate(1128,66);g.rotate(0.25);g.strokeStyle=C.pain;g.lineWidth=5;g.beginPath();g.arc(0,0,52,0,7);g.stroke();g.lineWidth=2;g.beginPath();g.arc(0,0,44,0,7);g.stroke();
+    g.fillStyle=C.pain;fitText(g,L.shNew,70,22,D);g.fillText(L.shNew,0,2);g.restore();}
+  // rank pill
+  g.font=D(46);const rw=Math.min(520,g.measureText(r.rank).width+70);
+  g.fillStyle=r.special?C.pain:'#fff';g.strokeStyle=r.special?C.ink:C.pain;g.lineWidth=7;rr(g,cx-rw/2,312,rw,82,18);g.fill();g.stroke();
+  g.fillStyle=r.special?'#fff':C.pain;fitText(g,r.rank,rw-50,46,D);g.fillText(r.rank,cx,355);
+  // what the owner says
+  const q='「'+L.q[qk]+'」';g.fillStyle=C.ink;fitText(g,q,540,40,D);g.lineWidth=8;g.strokeStyle='#fff';g.strokeText(q,cx,452);g.fillText(q,cx,452);
+  g.fillStyle=C.ink;const st=L.shStats(r.plucked,r.combo);fitText(g,st,520,32,B);g.fillText(st,cx,516);
+  g.fillStyle=C.ink;fitText(g,L.shCta,520,40,D);g.lineWidth=8;g.strokeStyle='#fff';g.strokeText(L.shCta,cx,590);g.fillText(L.shCta,cx,590);
+  return c;
+}
+function nat(plugin,m,o){const P=CapN.Plugins&&CapN.Plugins[plugin];if(P&&typeof P[m]==='function')return P[m](o||{});if(CapN.nativePromise)return CapN.nativePromise(plugin,m,o||{});return Promise.reject('none');}
+async function doShare(){
+  if(!lastRes)return;const b=$('shareBtn');b.disabled=true;
+  try{
+    const url=shareImg().toDataURL('image/png'),link=isNative?STORE_URL:WEB_URL,text=L.shText(lastRes.score)+' '+link;
+    if(isNative){try{const w=await nat('Filesystem','writeFile',{path:'finger-fuzz.png',data:url.split(',')[1],directory:'CACHE'});await nat('Share','share',{text,files:[w.uri],dialogTitle:L.share});return;}catch(e){if(/cancel/i.test(String((e&&e.message)||e)))return;}}
+    try{const blob=await (await fetch(url)).blob();const f=new File([blob],'finger-fuzz.png',{type:'image/png'});
+      if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text});return;}}catch(e){if(e&&e.name==='AbortError')return;}
+    $('shImg').src=url;show('ovImg');
+  }finally{b.disabled=false;}
+}
+async function postX(){if(!lastRes)return;const tag=lang==='ja'?'指毛ぬき':'FingerFuzz';
+  const touch=matchMedia('(pointer:coarse)').matches;
+  if(touch&&navigator.canShare){const xb=$('xBtn');xb.disabled=true;
+    try{const blob=await (await fetch(shareImg().toDataURL('image/png'))).blob();const f=new File([blob],'finger-fuzz.png',{type:'image/png'});
+      if(navigator.canShare({files:[f]})){await navigator.share({files:[f],text:L.shText(lastRes.score)+' '+WEB_URL+' #'+tag});return;}}
+    catch(e){if(e&&e.name==='AbortError')return;}finally{xb.disabled=false;}}
+  const a=document.createElement('a');a.href='https://x.com/intent/post?text='+encodeURIComponent(L.shText(lastRes.score))+'&url='+encodeURIComponent(WEB_URL)+'&hashtags='+encodeURIComponent(tag);
+  a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();}
+$('shareBtn').onclick=doShare;$('xBtn').onclick=postX;$('imgBack').onclick=()=>show('ovEnd');
+if(!isNative&&!WEB_SHARE){$('shareBtn').remove();$('xBtn').remove();}
+else if(!isNative){$('xBtn').hidden=false;$('shareBtn').querySelector('span').dataset.i='imgShare';$('shareBtn').querySelector('span').textContent=L.imgShare;}
+window.__shareImg=()=>shareImg().toDataURL('image/png');
+
+
 $('start').onclick=start;$('again').onclick=start;$('retry').onclick=start;
 $('pauseBtn').onclick=pause;$('resume').onclick=resume;$('toMenu').onclick=toMenu;$('endMenu').onclick=toMenu;
-$('toHow').onclick=()=>openTut(false);$('toSet').onclick=()=>show('ovSet');
+$('toHow').onclick=()=>openTut(false);$('toSkin').onclick=openSkins;$('toSet').onclick=()=>show('ovSet');
 document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>show('ovTitle'));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(state==='play')pause();else if(state==='pause')resume();else if(state==='title')show('ovTitle');}});
@@ -655,6 +1024,7 @@ try{if(!localStorage.getItem('yubige-tut'))openTut(true);}catch(e){openTut(true)
 
 let last=performance.now();
 function loop(t){const dt=Math.min(0.05,(t-last)/1000);last=t;if(state!=='pause')update(dt);draw();requestAnimationFrame(loop);}
+try{$('skDot').hidden=!(skFresh().length||localStorage.getItem('yubige-skdot'))}catch(e){}
 new ResizeObserver(resize).observe($('stage'));resize();requestAnimationFrame(loop);
 })();
 </script>
