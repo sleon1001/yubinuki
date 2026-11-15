@@ -913,7 +913,7 @@ const GC={best:'fuzz.best',total:'fuzz.total',
   ach:{first:'fuzz.first',s5k:'fuzz.score5000',s10k:'fuzz.score10000',s20k:'fuzz.score20000',s30k:'fuzz.score30000',c50:'fuzz.combo50',c100:'fuzz.combo100',fev3:'fuzz.fever3',h1k:'fuzz.hairs1000',h10k:'fuzz.hairs10000',sp0:'fuzz.brute',sp1:'fuzz.snapper',sp2:'fuzz.quitter',sp3:'fuzz.lucky7',sp4:'fuzz.minus',sp5:'fuzz.zen',sp6:'fuzz.flawless',sp7:'fuzz.fever4',c150:'fuzz.combo150'}};
 let gcOn=false,achGot=[];try{achGot=JSON.parse(localStorage.getItem('yubige-ach')||'[]')}catch(e){}
 function gcCall(m,o){if(!isNative)return Promise.reject('web');const P=CapN.Plugins&&CapN.Plugins.CapacitorGameConnect;if(P&&typeof P[m]==='function')return P[m](o||{});if(CapN.nativePromise)return CapN.nativePromise('CapacitorGameConnect',m,o||{});return Promise.reject('none');}
-function gcSignIn(){return gcCall('signIn').then(()=>{gcOn=true;gcSync();return true;}).catch(()=>false);}
+let gcErr='';function gcSignIn(){return gcCall('signIn').then(()=>{gcOn=true;gcSync();return true;}).catch(e=>{gcErr=String((e&&(e.message||e.code))||e);return false;});}
 function gcSync(){if(!gcOn)return;
   if(total>0)earn('first');if(best>=5000)earn('s5k');if(best>=10000)earn('s10k');if(best>=20000)earn('s20k');if(best>=30000)earn('s30k');
   if(total>=1000)earn('h1k');if(total>=10000)earn('h10k');for(const i of spGot)earn('sp'+i);
@@ -926,7 +926,7 @@ function gcReport(sc,si){
   if(maxCombo>=50)earn('c50');if(maxCombo>=100)earn('c100');if(maxCombo>=150)earn('c150');if(feverCnt>=3)earn('fev3');
   if(total>=1000)earn('h1k');if(total>=10000)earn('h10k');if(si>=0)earn('sp'+si);
   gcSync();}
-async function gcShow(m,o){if(!gcOn)await gcSignIn();if(gcOn)gcCall(m,o).catch(()=>{});}
+async function gcShow(m,o){if(!gcOn)await gcSignIn();if(gcOn){gcCall(m,o).catch(e=>alert('GC '+m+': '+String((e&&(e.message||e.code))||e)));}else{const X=CapN||{};alert('Game Center debug\nerr: '+gcErr+'\nplatform: '+(X.getPlatform&&X.getPlatform())+'\nGC avail: '+(X.isPluginAvailable&&X.isPluginAvailable('CapacitorGameConnect'))+'\nPlugins.GC: '+typeof(X.Plugins&&X.Plugins.CapacitorGameConnect)+'\nnativePromise: '+typeof X.nativePromise+'\nShare avail: '+(X.isPluginAvailable&&X.isPluginAvailable('Share')));}}
 if(isNative){$('toLb').hidden=false;$('toAch').hidden=false;setTimeout(gcSignIn,1200);}
 $('toLb').onclick=()=>gcShow('showLeaderboard',{leaderboardID:GC.best});
 $('toAch').onclick=()=>gcShow('showAchievements');
