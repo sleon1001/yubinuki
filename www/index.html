@@ -339,7 +339,7 @@ for(const k in T5)Object.assign(T[k],T5[k]);
 Object.assign(T.ja,{xPost:'Xでポスト',imgShare:'画像でシェア',saveImg:'画像を長押し(PCは右クリック)して保存してください'});
 Object.assign(T.en,{xPost:'Post on X',imgShare:'Share image',saveImg:'Long-press the image (right-click on PC) to save it'});
 Object.assign(T.zh,{xPost:'发到X',imgShare:'分享图片',saveImg:'长按图片(电脑上右键)即可保存'});
-Object.assign(T.ko,{xPost:'X에 올리기',imgShare:'이미지 공유',saveImg:'이미지를 길게 누르거나(PC는 우클릭) 저장하세요'});
+Object.assign(T.ko,{xPost:'X에 올리기',imgShare:'이미지 공유',saveImg:'이미지를 길게 누르거나(PC는 우클릭) 저장하세요'});Object.assign(T.ja,{gcFail:'Game Centerに接続できませんでした。設定アプリでGame Centerにサインインしてから、もう一度お試しください。'});Object.assign(T.en,{gcFail:'Could not connect to Game Center. Please sign in to Game Center in the Settings app and try again.'});Object.assign(T.zh,{gcFail:'无法连接到Game Center。请在“设置”中登录Game Center后重试。'});Object.assign(T.ko,{gcFail:'Game Center에 연결할 수 없습니다. 설정 앱에서 Game Center에 로그인한 후 다시 시도해 주세요.'});
 let lang=(()=>{const n=(navigator.language||'').toLowerCase();return n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':n.startsWith('ko')?'ko':'en';})();
 try{const s=localStorage.getItem('yubige-lang');if(T[s])lang=s;else{const n=(navigator.language||'').toLowerCase();lang=n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':n.startsWith('ko')?'ko':'en';}}catch(e){}
 let L=T[lang];
@@ -926,7 +926,7 @@ function gcReport(sc,si){
   if(maxCombo>=50)earn('c50');if(maxCombo>=100)earn('c100');if(maxCombo>=150)earn('c150');if(feverCnt>=3)earn('fev3');
   if(total>=1000)earn('h1k');if(total>=10000)earn('h10k');if(si>=0)earn('sp'+si);
   gcSync();}
-async function gcShow(m,o){if(!gcOn)await gcSignIn();if(gcOn){gcCall(m,o).catch(e=>alert('GC '+m+': '+String((e&&(e.message||e.code))||e)));}else{const X=CapN||{};alert('Game Center debug\nerr: '+gcErr+'\nplatform: '+(X.getPlatform&&X.getPlatform())+'\nGC avail: '+(X.isPluginAvailable&&X.isPluginAvailable('CapacitorGameConnect'))+'\nPlugins.GC: '+typeof(X.Plugins&&X.Plugins.CapacitorGameConnect)+'\nnativePromise: '+typeof X.nativePromise+'\nShare avail: '+(X.isPluginAvailable&&X.isPluginAvailable('Share')));}}
+async function gcShow(m,o){if(!gcOn)await gcSignIn();if(gcOn){gcCall(m,o).catch(()=>alert(L.gcFail));}else{alert(L.gcFail);}}
 if(isNative){$('toLb').hidden=false;$('toAch').hidden=false;setTimeout(gcSignIn,1200);}
 $('toLb').onclick=()=>gcShow('showLeaderboard',{leaderboardID:GC.best});
 $('toAch').onclick=()=>gcShow('showAchievements');
